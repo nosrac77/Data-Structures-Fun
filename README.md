@@ -1,6 +1,6 @@
 # Data Structures Fun!
 
-This is a repository meant to help people learn more about common Computer Science related Data Structures. Concepts, descriptions, and implementations (in Python and JavaScript) will be presented to any and all interested. Whether you're new to programming or are a seasoned veteran you're welcome to explore this repository to sharpen your understanding of Computer Sciences most popular Data Structures. Let's get coding!
+This is a repository meant to help people learn more about common Computer Science related Data Structures. Concepts, descriptions, and implementations (in Python and JavaScript) will be presented to any and all interested. Whether you're new to programming or a seasoned veteran, you're welcome to explore this repository to sharpen your understanding of Computer Science's most popular Data Structures. Let's get coding!
 
 ### The Abstract Data Type (ADT) - A Brief Introduction
 
@@ -27,12 +27,19 @@ The second has to do with pure academics. In programming, basic knowledge of Dat
 A great starting example of an ADT is a **Singly Linked List** (*which we will explore in much greater depth later on*). Although it can be implemented in many ways, a proper Singly Linked List must support a few basic operations and must possess certain attributes. Check out the code below.
 
 ```python
+# Singly Linked List
+
 [ 1 ] -> [ 2 ] -> [ 3 ] -> None
   |             |           |
 #Node        Pointer       End
 ```
 
 Above is a visual representation of what a Singly Linked List might look like in Python. The square brackets containing the number one ```[ 1 ]``` represent a key attribute of a Singly Linked List: a **Node**, which is a structure that houses a piece of data. Singly Linked Lists are built by linking one or more of these Nodes together by using **pointers**, which are represented in the above example by the ```->``` symbols. The last node in our example is the ```[ 3 ]``` above, which has a pointer that points to ```None```. This shows another common aspect of Singly Linked Lists. The last Node must always point to "nothing" which signifies the end of the list. This can be implemented in Python by ensuring that the last Node is always pointing to ```None```, and similarly in JavaScript by pointing instead to ```null```.
+
+### Data Structures Quick Info Table
+| Name | Big-O Lookup/Search |
+| :-------------: | :-------------: |
+| Singly Linked List | O(n) |
 
 **References:**
 - 1 - [Wikipedia](https://en.wikipedia.org/wiki/Abstract_data_type)

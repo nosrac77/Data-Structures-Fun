@@ -17,7 +17,7 @@ class SinglyLinkedList(object):
     def __init__(self):
         """Create new instance of a Singly Linked List class object."""
 
-        self.head = Node()
+        self.head = None
         self.next_node = None
 
     def add_node(self, data):
@@ -40,3 +40,23 @@ class SinglyLinkedList(object):
         # added Node. It's data will be the data passed in as the
         # argument for our method and it's next_node will become what the old
         # head Node used to be.
+
+    def delete_node(self, data):
+        """Method to delete a Node in the Singly Linked List with the given
+        data."""
+
+        if self.head.data == data:
+            self.head = self.head.next_node
+            return data
+
+        node_to_be_deleted = self.head
+        previous_node = self.head
+
+        while node_to_be_deleted:
+            if node_to_be_deleted.data == data:
+                previous_node.next_node = node_to_be_deleted.next_node
+                return data
+            previous_node = node_to_be_deleted
+            node_to_be_deleted = node_to_be_deleted.next_node
+        raise LookupError("""A Node with the given data does not exist in the
+                          Singly Linked List.""")

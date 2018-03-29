@@ -87,3 +87,13 @@ def test_delete_node_raises_exception_if_node_with_given_data_not_in_list():
 
     with pytest.raises(LookupError):
         assert ll.delete_node(5)
+
+
+def test_delete_node_method_raises_exception_if_list_is_empty():
+    """Test that the delete_node method of the Singly Linked List class raises
+    an exception if used on an empty list."""
+
+    ll = SinglyLinkedList()
+
+    with pytest.raises(LookupError):
+        assert ll.delete_node(1)

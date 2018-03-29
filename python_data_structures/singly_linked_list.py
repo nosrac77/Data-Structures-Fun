@@ -89,14 +89,36 @@ class SinglyLinkedList(object):
                 # 3)
                 # We've finally found the Node we want to delete! In order to
                 # delete this Node from our Singly Linked List, all we have to
-                # do is assign previous_node's next_node to
+                # do is assign previous_node's next_node to become
                 # node_to_be_deleted's next_node. We do this because, in
                 # Python, objects that are no longer referenced in memory are
-                # 'garbage-collected', or deleted. In order to delete a Node in
+                # 'garbage-collected', or deleted. In order to delete a Node,
+                # we just ensure that nothing points to that Node. Simple!
+
+                # This is also the reason why we created the two variables on
+                # lines 67 and 68. The variable node_to_be_deleted served to
+                # eventually land on the Node we want to delete, consistently
+                # checking the data of the Nodes as our while loop iterates.
+                # The other variable, previous_node, serves by being one Node
+                # prior to node_to_be_deleted so that when node_to_be_deleted
+                # eventually lands on the Node we wish to delete all we have to
+                # do is reassign previous_node's next_node. This reassignment
+                # happens below, on line 108.
 
                 previous_node.next_node = node_to_be_deleted.next_node
                 return data
+
             previous_node = node_to_be_deleted
             node_to_be_deleted = node_to_be_deleted.next_node
+
+            # Lines 111 and 112 above are to ensure that our variables get
+            # reassigned to the correct Nodes down our list if we haven't yet
+            # found the Node we want to delete.
+
         raise LookupError("""A Node with the given data does not exist in the
                           Singly Linked List.""")
+
+        # Line 118 will raise a LookupError if the given value to delete does
+        # not exist in any Node within our Singly Linked List. That is to say,
+        # if the Node the user input isn't in our list, we tell them! It should
+        # be noted that raising an error is not necessary.

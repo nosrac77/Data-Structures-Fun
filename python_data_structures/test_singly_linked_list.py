@@ -27,7 +27,29 @@ def test_new_instance_of_node_accepts_param_arguments():
     assert new_node.next_node == 'next_node value'
 
 
-def test_slfjdklfjadskljfldskafs():
-    """."""
+def test_new_singly_linked_list_instance_has_head_equal_to_none():
+    """Test that a newly created instance of the SinglyLinkedList class is
+    initialized with a head attribute equal to None."""
 
     ll = SinglyLinkedList()
+    assert ll.head is None
+
+
+def test_add_node_method_adds_new_Node_class_to_Singly_Linked_Class():
+    """Test that the add_node method of the Singly Linked List class
+    successfully adds a new instance of the Node class."""
+
+    ll = SinglyLinkedList()
+    ll.add_node(1)
+    assert isinstance(ll.head, Node)
+
+
+def test_add_node_method_replaces_None_value_in_head_with_Node_object():
+    """Test that the add_node method of the Singly Linked List class replaces
+    the value of None in an empty list's head attribute with the Node class
+    object."""
+
+    ll = SinglyLinkedList()
+    ll.add_node(1)
+    assert ll.head is not None
+    assert hasattr(ll.head, 'data') and hasattr(ll.head, 'next_node')

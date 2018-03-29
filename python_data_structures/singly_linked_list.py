@@ -18,7 +18,6 @@ class SinglyLinkedList(object):
         """Create new instance of a Singly Linked List class object."""
 
         self.head = None
-        self.next_node = None
 
     def add_node(self, data):
         """Method to add new Node to Singly Linked List."""

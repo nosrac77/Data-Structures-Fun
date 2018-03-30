@@ -190,3 +190,14 @@ class SinglyLinkedList(object):
         # And finally, the above will occur if either the list is empty or the
         # list doesn't contain a Node with the given data. This is, again, not
         # necessary.
+
+    def pop(self):
+        """Method to delete and return list's head."""
+
+        if self.head:
+
+            head_data = self.head.data
+            self.head = self.head.next_node
+            return head_data
+
+        raise IndexError("""Cannot pop from an empty list.""")

@@ -133,3 +133,21 @@ class SinglyLinkedList(object):
         # not exist in any Node within our Singly Linked List. That is to say,
         # if the Node the user input isn't in our list, we tell them! It should
         # be noted that raising an error is not necessary.
+
+    def search(self, data):
+        """Method to search for a Node containing given data within Singly
+        Linked List."""
+
+        if self.head:
+
+            searching_node = self.head
+
+            while searching_node:
+
+                if searching_node.data == data:
+                    return searching_node
+
+                searching_node = searching_node.next_node
+
+        raise LookupError("""Node containing given data does exist within
+                          Singly Linked List.""")

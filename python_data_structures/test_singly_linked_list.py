@@ -147,3 +147,34 @@ def test_delete_node_method_returns_data_value_of_deleted_node():
     ll.add_node(1)
 
     assert ll.delete_node(1) == 1
+
+
+def test_search_method_returns_node_if_node_containing_data_exists_in_list():
+    """Test that the search method of the Singly Linked List class returns Node
+    containing given data if it exists in the list."""
+
+    ll = SinglyLinkedList()
+    ll.add_node(1)
+
+    assert ll.search(1) is ll.head
+
+
+def test_search_method_raises_exception_if_node_containing_data_absent():
+    """Test that the search method of the Singly Linked List class raises a
+    LookupError if no Node in list contains given data."""
+
+    ll = SinglyLinkedList()
+    ll.add_node(1)
+
+    with pytest.raises(LookupError):
+        assert ll.search(5)
+
+
+def test_search_method_raises_exception_if_list_is_empty():
+    """Test that the search method of the Singly Linked List class raises a
+    LookupError if the list is empty."""
+
+    ll = SinglyLinkedList()
+
+    with pytest.raises(LookupError):
+        assert ll.search(1)

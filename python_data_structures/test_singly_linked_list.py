@@ -97,3 +97,53 @@ def test_delete_node_method_raises_exception_if_list_is_empty():
 
     with pytest.raises(LookupError):
         assert ll.delete_node(1)
+
+
+def test_delete_node_method_reassigns_head_of_list_if_head_is_deleted():
+    """Test that the delete_node method of the Singly Linked List class
+    correctly reassigns the head Node of the list to the next Node if the head
+    Node is removed."""
+
+    ll = SinglyLinkedList()
+    ll.add_node(1)
+    ll.add_node(2)
+
+    ll.delete_node(2)
+    assert ll.head.data == 1
+
+
+def test_delete_node_method_reassigns_next_node_to_none_if_deleting_end_Node():
+    """Test that the delete_node method of the Singly Linked List correctly
+    reassigns the next_node to Node if it's removing the last Node of the list
+    ."""
+
+    ll = SinglyLinkedList()
+    ll.add_node(1)
+    ll.add_node(2)
+
+    ll.delete_node(1)
+    assert ll.head.next_node is None
+
+
+def test_delete_node_method_correctly_reassigns_pointers_if_deleting_middle():
+    """Test that the delete_node method of the Singly Linked List class
+    correctly reassigns pointers if deleting a Node that has two Nodes on
+    either side of it."""
+
+    ll = SinglyLinkedList()
+
+    for i in range(3):
+        ll.add_node(i)
+
+    ll.delete_node(1)
+    assert ll.head.data == 2 and ll.head.next_node.data == 0
+
+
+def test_delete_node_method_returns_data_value_of_deleted_node():
+    """Test that the delete_node method of the Singly Linked List class returns
+    the data value of the Node that it deletes."""
+
+    ll = SinglyLinkedList()
+    ll.add_node(1)
+
+    assert ll.delete_node(1) == 1

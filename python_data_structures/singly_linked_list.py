@@ -138,16 +138,55 @@ class SinglyLinkedList(object):
         """Method to search for a Node containing given data within Singly
         Linked List."""
 
+        # Searching for a Node containing the given data is very similar to
+        # deleting a Node containing the give data. All we have to do is 1)
+        # create a variable that will represent the Node we're searching for
+        # and 2) iterate over our Singly Linked List to return the Node we're
+        # searching for (if it exists).
+
+        # Just like we did with delete_node, we should check to ensure that our
+        # list isn't empty before proceeding. If it is, we skip right to
+        # raising an exception. That check is performed below on line 1.
+
         if self.head:
+
+            # If the list isn't empty, we can perform the search. First we
+            # need to assign a variable with which to traverse our list. Just
+            # like in the delete_node method, this variable will assume the
+            # identity of each Node in our list until it find the Node we're
+            # searching for. That variable is below, on line 159.
 
             searching_node = self.head
 
             while searching_node:
 
+                # Now we're in the heart of this method. We begin iterating
+                # using a while loop, the goal here being to iterate over every
+                # Node until we either find the one we're searching for or hit
+                # the end of our list. If we hit the end of our list, the
+                # variable searching_node will become None, the while loop will
+                # cease it's execution, and the exception will be raised.
+
                 if searching_node.data == data:
+
+                    # We have now found the Node we've been searching for. We
+                    # know this because searching_node's data is equal to the
+                    # data we gave it (that check is performed above on line
+                    # 170). Now we return the Node, accomplished below on line
+                    # 178.
+
                     return searching_node
 
                 searching_node = searching_node.next_node
 
+                # Line 180 above reassigns the variable searching_node to the
+                # next Node in our list. We do this continuous reassignment
+                # because it is the only way to iterate over our Singly Linked
+                # List.
+
         raise LookupError("""Node containing given data does exist within
                           Singly Linked List.""")
+
+        # And finally, the above will occur if either the list is empty or the
+        # list doesn't contain a Node with the given data. This is, again, not
+        # necessary.

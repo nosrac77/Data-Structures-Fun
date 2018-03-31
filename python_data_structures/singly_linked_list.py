@@ -190,3 +190,30 @@ class SinglyLinkedList(object):
         # And finally, the above will occur if either the list is empty or the
         # list doesn't contain a Node with the given data. This is, again, not
         # necessary.
+
+    def pop(self):
+        """Method to delete and return list's head."""
+
+        # Just like we've done in previous methods, we're first going to check
+        # to ensure the list isn't empty by ensuring it has a head. We do this
+        # below on line 201.
+
+        if self.head:
+
+            # As we did in the delete_node method, when it turned out the Node
+            # we wanted to delete was the head Node, all we have to do is
+            # reassign the head to become it's next_node. The only difference
+            # is that we first assign a variable to be the head Node's data so
+            # that we can return it after it has been reassigned. These steps
+            # are performed on the three lines below.
+
+            head_data = self.head.data
+            self.head = self.head.next_node
+            return head_data
+
+        raise IndexError("""Cannot pop from an empty list.""")
+
+        # Above we raise an exception, only this time it's an IndexError
+        # instead of a LookupError (since we're not actually 'looking' for
+        # anything, just removing the head Node if it's there). This error will
+        # only get raised if the Singly Linked List is empty.

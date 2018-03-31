@@ -178,3 +178,47 @@ def test_search_method_raises_exception_if_list_is_empty():
 
     with pytest.raises(LookupError):
         assert ll.search(1)
+
+
+def test_pop_method_removes_head_of_list():
+    """Test that the pop method of the Singly Linked List class removes the
+    head of the list."""
+
+    ll = SinglyLinkedList()
+    ll.add_node(1)
+
+    ll.pop()
+    assert ll.head is None
+
+
+def test_pop_method_removes_and_reassigns_head_if_multiple_nodes_in_list():
+    """Test that the pop method of the Singly Linked List class removes the
+    head of the list and then reassigns the head to be the next Node in the
+    list, if multiple Nodes exist."""
+
+    ll = SinglyLinkedList()
+    ll.add_node(1)
+    ll.add_node(5)
+
+    ll.pop()
+    assert ll.head.data == 1
+
+
+def test_pop_method_returns_data_value_of_head_node():
+    """Test that the pop method of the Singly Linked List class returns the
+    data value of the head Node."""
+
+    ll = SinglyLinkedList()
+    ll.add_node(10)
+
+    assert ll.pop() == 10
+
+
+def test_pop_method_raises_exception_if_list_is_empty():
+    """Test that the pop method of the Singly Linked List class raises an
+    exception if the list is empty."""
+
+    ll = SinglyLinkedList()
+
+    with pytest.raises(IndexError):
+        assert ll.pop()

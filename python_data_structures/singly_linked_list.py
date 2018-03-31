@@ -217,3 +217,7 @@ class SinglyLinkedList(object):
         # instead of a LookupError (since we're not actually 'looking' for
         # anything, just removing the head Node if it's there). This error will
         # only get raised if the Singly Linked List is empty.
+
+    def display(self):
+        """Method to display the current state of the list."""
+        pass

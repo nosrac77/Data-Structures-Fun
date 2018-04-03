@@ -221,6 +221,26 @@ class SinglyLinkedList(object):
     def display(self):
         """Method to display the current state of the list."""
 
+        # In order to display our Singly Linked List, we first need to define a
+        # variable with which to hold our list's Node data. The plan is to
+        # continuously add to this variable for every Node in our list and then
+        # return it once we've reached the end. The visual representation of a
+        # Node in our list will have square brackets (which represent the Node)
+        # the data within the square brackets (which represent the data that
+        # each Node holds), and a text-based arrow pointing to the right (which
+        # will represent the Node's next_node pointer).
+
+        # The variable mentioned above is defined below on line 244, called
+        # all_nodes. An important thing to note here is that all_nodes is
+        # initially an empty list. You may be asking yourself "why not make it
+        # an empty string and use string concatenation to add the Node data?".
+        # That's a great question. The answer is that string concatenation in
+        # Python is an O(n^2) operation, an inefficient time complexity
+        # considering the simple nature of our task. To circumnavigate this
+        # issue, one can simply append string elements to an empty list and
+        # return a ''.join() on that list instead. The end result is the same
+        # and the time complexity is dropped to O(n), which is much better.
+
         all_nodes = []
         current_node = self.head
 

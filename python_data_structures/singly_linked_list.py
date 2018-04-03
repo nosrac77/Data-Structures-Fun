@@ -220,4 +220,12 @@ class SinglyLinkedList(object):
 
     def display(self):
         """Method to display the current state of the list."""
-        pass
+
+        all_nodes = []
+        current_node = self.head
+
+        while current_node:
+            all_nodes.append('[ ' + current_node.data + ' ]' + ' -> ')
+
+        all_nodes.append('None')
+        return ''.join(all_nodes)

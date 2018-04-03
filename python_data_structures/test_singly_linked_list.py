@@ -222,3 +222,24 @@ def test_pop_method_raises_exception_if_list_is_empty():
 
     with pytest.raises(IndexError):
         assert ll.pop()
+
+
+def test_display_method_returns_correct_visual_representation_of_list():
+    """Test that the display method of the Singly Linked List returns an
+    accurate visual representation of the list, complete with all Nodes."""
+
+    ll = SinglyLinkedList()
+
+    for i in range(3):
+        ll.add_node(i)
+
+    assert ll.display() == '[ 2 ] -> [ 1 ] -> [ 0 ] -> None'
+
+
+def test_display_method_returns_string_of_none_if_list_is_empty():
+    """Test that the display method of the Singly Linked List class returns the
+    string of None of the list is empty."""
+
+    ll = SinglyLinkedList()
+
+    assert ll.display() == 'None'

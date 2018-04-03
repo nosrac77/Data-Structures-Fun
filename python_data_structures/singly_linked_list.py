@@ -217,3 +217,64 @@ class SinglyLinkedList(object):
         # instead of a LookupError (since we're not actually 'looking' for
         # anything, just removing the head Node if it's there). This error will
         # only get raised if the Singly Linked List is empty.
+
+    def display(self):
+        """Method to display the current state of the list."""
+
+        # In order to display our Singly Linked List, we first need to define a
+        # variable with which to hold our list's Node data. The plan is to
+        # continuously add to this variable for every Node in our list and then
+        # return it once we've reached the end. The visual representation of a
+        # Node in our list will have square brackets (which represent the Node)
+        # the data within the square brackets (which represent the data that
+        # each Node holds), and a text-based arrow pointing to the right (which
+        # will represent the Node's next_node pointer).
+
+        # The variable mentioned above is defined below on line 244, called
+        # all_nodes. An important thing to note here is that all_nodes is
+        # initially an empty list. You may be asking yourself "why not make it
+        # an empty string and use string concatenation to add the Node data?".
+        # That's a great question. The answer is that string concatenation in
+        # Python is an O(n^2) operation, an inefficient time complexity
+        # considering the simple nature of our task. To circumnavigate this
+        # issue, one can simply append string elements to an empty list and
+        # return a ''.join() on that list instead. The end result is the same
+        # and the time complexity is dropped to O(n), which is much better.
+
+        all_nodes = []
+
+        # Now we must do as we've done in previous methods, which is to iterate
+        # over the Singly Linked List. To do this we first define a variable
+        # below called current_node. This variable will take the form of every
+        # Node in our list as we iterate over it.
+
+        current_node = self.head
+
+        while current_node:
+
+            # We're now iterating over our list, appending the correct strings
+            # in the correct order to properly display the Singly Linked List.
+            # Note that below we must first use the str() method on our data.
+            # This only needs to happen if current_node.data isn't inherently a
+            # string.
+
+            all_nodes.append('[ ' + str(current_node.data) + ' ]' + ' -> ')
+
+            # As we've done plenty of times by now, we then reassign
+            # current_node to become it's next_node to continue iteration. This
+            # is accomplished below, on line 267.
+
+            current_node = current_node.next_node
+
+        # Now that we're done iterating, we know we've reached the end of our
+        # Singly Linked List. All data from all Nodes has been properly stored
+        # and is ready to be returned. The final step we must take before
+        # returning that data is to append one final string of 'None' which
+        # represents the end of our list. We do this below on line 275.
+
+        all_nodes.append('None')
+
+        # We did it! Now we use ''.join(), passing in the all_nodes variable,
+        # to return the visual representation of our Singly Linked List!
+
+        return ''.join(all_nodes)

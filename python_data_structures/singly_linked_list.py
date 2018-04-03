@@ -225,7 +225,9 @@ class SinglyLinkedList(object):
         current_node = self.head
 
         while current_node:
-            all_nodes.append('[ ' + current_node.data + ' ]' + ' -> ')
+            all_nodes.append('[ ' + str(current_node.data) + ' ]' + ' -> ')
+
+            current_node = current_node.next_node
 
         all_nodes.append('None')
         return ''.join(all_nodes)

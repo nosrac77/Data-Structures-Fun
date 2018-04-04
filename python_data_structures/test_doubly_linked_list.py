@@ -126,3 +126,29 @@ def test_delete_node_method_removes_node_with_prev_and_next_pointers():
 
     dll.delete_node(2)
     assert dll.head.next_node.data != 2 and dll.tail.prev_node.data != 2
+
+
+def test_delete_node_method_reassigns_head_to_be_next_node_if_deleting_head():
+    """Test that the delete_node method of the DoublyLinkedList class correctly
+    reassigns the list's head to be it's next_node if Node to be deleted is the
+    list's head."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(1)
+    dll.add_node(2)
+
+    dll.delete_node(2)
+    assert dll.head.data == 1
+
+
+def test_delete_node_method_reassigns_tail_to_be_prev_node_if_deleting_tail():
+    """Test that the delete_node method of the DoublyLinkedList class correctly
+    reassigns the list's tail to be it's prev_node if Node to be deleted is the
+    list's tail."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(30)
+    dll.add_node(15)
+
+    dll.delete_node(30)
+    assert dll.tail.data == 15

@@ -85,8 +85,15 @@ class DoublyLinkedList(object):
 
         if self.head.data == data:
 
-            self.head = self.head.next_node
-            self.head.prev_node = None
+            if self.head.next_node:
+
+                self.head = self.head.next_node
+                self.head.prev_node = None
+
+            else:
+
+                self.head = None
+                self.tail = None
 
             return 'Node has been deleted.'
 

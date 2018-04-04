@@ -78,3 +78,37 @@ class DoublyLinkedList(object):
             # directly behind it in the DoublyLinkedList.
 
             new_next_node.prev_node = self.head
+
+    def delete_node(self, data):
+        """Method to delete first Node found containing given data, starting
+        from head."""
+
+        if self.head.data == data:
+
+            self.head = self.head.next_node
+            self.head.prev_node = None
+
+            return 'Node has been deleted.'
+
+        current_node = self.head
+
+        while current_node:
+
+            if current_node.data == data:
+
+                if current_node is self.tail:
+
+                    self.tail = current_node.prev_node
+                    self.tail.next_node = None
+
+                else:
+
+                    current_node.prev_node.next_node = current_node.next_node
+                    current_node.next_node.prev_node = current_node.prev_node
+
+                return 'Node has been deleted.'
+
+            current_node = current_node.next_node
+
+        raise LookupError("""No Node containing given value exists in Doubly
+                          Linked List.""")

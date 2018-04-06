@@ -78,3 +78,7 @@ class DoublyLinkedList(object):
             # directly behind it in the DoublyLinkedList.
 
             new_next_node.prev_node = self.head
+
+    def pop(self):
+        """Method to remove and return value of head of DoublyLinkedList class
+        object."""

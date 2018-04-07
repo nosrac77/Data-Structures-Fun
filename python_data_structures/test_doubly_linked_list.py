@@ -1,6 +1,7 @@
 """Module containing pytest tests for Doubly Linked List."""
 
 from doubly_linked_list import DoublyLinkedList, Node
+import pytest
 
 
 def test_add_node_method_adds_instance_of_node_to_list():
@@ -152,3 +153,24 @@ def test_delete_node_method_reassigns_tail_to_be_prev_node_if_deleting_tail():
 
     dll.delete_node(30)
     assert dll.tail.data == 15
+
+
+def test_delete_method_raises_exception_if_list_is_empty():
+    """Test that the delete_node method of the DoublyLinkedList class raises a
+    LookupError if called on an empty list."""
+
+    dll = DoublyLinkedList()
+
+    with pytest.raises(LookupError):
+        dll.delete_node(1)
+
+
+def test_delete_method_raises_exception_if_node_not_found():
+    """Test that the delete_node method of the DoublyLinkedList class raises a
+    LookupError if a Node containing the given data is not found."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(1)
+
+    with pytest.raises(LookupError):
+        dll.delete_node(2)

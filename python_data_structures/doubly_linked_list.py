@@ -83,39 +83,48 @@ class DoublyLinkedList(object):
         """Method to delete first Node found containing given data, starting
         from head."""
 
-        if self.head.data == data:
+        # OVERVIEW
+        # Deleting a Node in a DoublyLinkedList is similar to how we delete a
+        # Node from a Singly Linked List, with a few extra steps to ensure all
+        # Nodes are appropriately assigned. After making sure our list isn't
+        # empty, we then check to see if the Node we want to delete is the head
+        # of our list.
 
-            if self.head.next_node:
+        if self.head:
 
-                self.head = self.head.next_node
-                self.head.prev_node = None
+            if self.head.data == data:
 
-            else:
+                if self.head.next_node:
 
-                self.head = None
-                self.tail = None
-
-            return 'Node has been deleted.'
-
-        current_node = self.head
-
-        while current_node:
-
-            if current_node.data == data:
-
-                if current_node is self.tail:
-
-                    self.tail = current_node.prev_node
-                    self.tail.next_node = None
+                    self.head = self.head.next_node
+                    self.head.prev_node = None
 
                 else:
 
-                    current_node.prev_node.next_node = current_node.next_node
-                    current_node.next_node.prev_node = current_node.prev_node
+                    self.head = None
+                    self.tail = None
 
                 return 'Node has been deleted.'
 
-            current_node = current_node.next_node
+            current_node = self.head
+
+            while current_node:
+
+                if current_node.data == data:
+
+                    if current_node is self.tail:
+
+                        self.tail = current_node.prev_node
+                        self.tail.next_node = None
+
+                    else:
+
+                        current_node.prev_node.next_node = current_node.next_node
+                        current_node.next_node.prev_node = current_node.prev_node
+
+                    return 'Node has been deleted.'
+
+                current_node = current_node.next_node
 
         raise LookupError("""No Node containing given value exists in Doubly
                           Linked List.""")

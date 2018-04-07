@@ -8,7 +8,7 @@ In the wonderful world of programming and Computer Science, the term 'Data Struc
 
 Wikipedia defines an ADT as: "a mathematical model for data types, where a data type is defined by its behavior (semantics) from the point of view of a user of the data"<sup>1</sup>. Another way to describe an ADT is: a set of data values and associated operations that are precisely specified independent of any particular implementation.
 
-###### Why should you take the time to learn this stuff?
+##### Why should you take the time to learn this stuff?
 
 If you're new to Data Structures you may be saying to yourself "But wait, don't languages like JavaScript already have built-in things like arrays and objects to house data? So why would anyone need to learn about Absract Data Types?". This is a great point! Many (if not *all*) programming languages utilize  built-in data structures with which to store data. So why learn how to implement an ADT?
 
@@ -22,7 +22,7 @@ The second has to do with pure academics. In programming, basic knowledge of Dat
 3. Greatly help you during potential whiteboard interviews.
 4. Give you the ability to, at any time, impress your friends and family with fancy nerd-talk.
 
-###### Quick example of an ADT
+##### Quick example of an ADT
 
 A great starting example of an ADT is a **Singly Linked List** (*which we will explore in much greater depth later on*). Although it can be implemented in many ways, a proper Singly Linked List must support a few basic operations and must possess certain attributes. Check out the code below.
 
@@ -40,6 +40,12 @@ Above is a visual representation of what a Singly Linked List might look like in
 | Name | Big-O Lookup/Search |
 | :-------------: | :-------------: |
 | Singly Linked List | O(n) |
+
+### Data Structures List
+
+#### Singly Linked List
+
+**Overview**: The Singly Linked List is an ADT comprised of one or more Nodes that "link" together by way of unilateral pointers.
 
 **References:**
 - 1 - [Wikipedia](https://en.wikipedia.org/wiki/Abstract_data_type)

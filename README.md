@@ -41,5 +41,9 @@ Above is a visual representation of what a Singly Linked List might look like in
 | :-------------: | :-------------: |
 | Singly Linked List | O(n) |
 
+### Data Structures:
+
+**Stack**
+
 **References:**
 - 1 - [Wikipedia](https://en.wikipedia.org/wiki/Abstract_data_type)

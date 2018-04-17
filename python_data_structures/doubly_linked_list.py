@@ -238,4 +238,13 @@ class DoublyLinkedList(object):
     def append(self, data):
         """Method to add new Node at tail of DoublyLinkedList."""
 
-        
+        new_prev_node = self.tail
+        self.tail = Node(data, None, new_prev_node)
+
+        if self.head:
+
+            new_prev_node.next_node = self.tail
+
+        else:
+
+            self.head = self.tail

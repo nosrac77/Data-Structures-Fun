@@ -238,13 +238,44 @@ class DoublyLinkedList(object):
     def append(self, data):
         """Method to add new Node at tail of DoublyLinkedList."""
 
-        new_prev_node = self.tail
-        self.tail = Node(data, None, new_prev_node)
+        # OVERVIEW
+        # Appending a Node to a DoublyLinkedList is just like adding a Node
+        # using the add_node method, except we're adding the new Node to the
+        # end of our list instead of at the beginning. This process is simple
+        # due to the list's tail. We'll create a variable that represents the
+        # old tail of our list, reassign the tail to become a new Node with the
+        # given data, and then based upon if our list is empty or not we'll
+        # reassign other pointers accordingly. Easy!
+
+        # On line 255 below we create a new variable called old_tail that
+        # will represent our list's soon-to-be old tail. Next, on line 256, we
+        # reassign the tail to be a new Node with a prev_node pointer that
+        # points to our old_tail variable.
+
+        old_tail = self.tail
+        self.tail = Node(data, None, old_tail)
+
+        # At this point we've already done most of the work. The newly appended
+        # Node is now the list's new tail, as it should be, and the only thing
+        # left for us to do is ensure that the list's old tail has a next_node
+        # pointer that points at the new tail. However, if the list we just
+        # appended to was previously empty, our old_tail variable will be None,
+        # and trying to use old_tail.next_node will raise an exception.
+        # Furthermore, we need to ensure that the list's head is correctly
+        # assigned if the list was previously empty. So, on line 268 below, we
+        # perform a simple check to see if the list was previously empty.
 
         if self.head:
 
-            new_prev_node.next_node = self.tail
+            # If the list wasn't empty, all we have to do is assign the
+            # old_tail's next_node pointer to be the new tail. It's that
+            # simple!
+
+            old_tail.next_node = self.tail
 
         else:
+
+            # If the list was empty, we just have to ensure that it's head is
+            # correctly assigned to be it's tail. Easy, right?
 
             self.head = self.tail

@@ -78,3 +78,159 @@ class DoublyLinkedList(object):
             # directly behind it in the DoublyLinkedList.
 
             new_next_node.prev_node = self.head
+
+    def delete_node(self, data):
+        """Method to delete first Node found containing given data, starting
+        from head."""
+
+        # OVERVIEW
+        # Deleting a Node in a DoublyLinkedList is similar to how we delete a
+        # Node from a Singly Linked List, with a few extra steps to ensure all
+        # Nodes are appropriately assigned. The relevant differences to be
+        # aware of are 1) that Nodes here have a new property prev_node
+        # pointer to the Node just before it in the list, and 2) that the list
+        # has a tail Node that always resides at the end of the list.
+
+        if self.head:
+
+            # The first check is to ensure that the list is not empty by
+            # ensuring that it has a head. We do this above on line 94.
+
+            if self.head.data == data:
+
+                # The check above only activates if the head Node happens to be
+                # the Node we're seeking to delete from the list. If it is, we
+                # must then check to see if the list is only comprised of one
+                # Node. If there's only one Node in the list, we have to
+                # perform a different action than if the Node has a neighbor.
+
+                if self.head.next_node:
+
+                    # To recap, if the Node we're trying to delete is the head
+                    # of our DoublyLinkedList and it also has at least one
+                    # other Node beside it in the list, we land here. We then
+                    # reassign the head to become it's next_node, which we do
+                    # below on line 118. Since the head has been reassigned,
+                    # the only other step is to reassign the new head's
+                    # prev_node pointer to be None (line 119 below). The Node
+                    # is now deleted!
+
+                    self.head = self.head.next_node
+                    self.head.prev_node = None
+
+                else:
+
+                    # If the Node we want to delete is the head Node, and the
+                    # list only contains one Node, we land here. Deleting a
+                    # Node in this case is relatively straight-forward.
+                    # Reassigning both the list's head and the tail to None
+                    # will do the job (lines 129 and 130 below).
+
+                    self.head = None
+                    self.tail = None
+
+                # In either case, the head Node will be deleted. The return
+                # statement below is to ensure that the method ceases it's
+                # execution and informs the user that the operation was
+                # successful.
+
+                return 'Node has been deleted.'
+
+            # If the Node we wish to delete is not the list's head, we must
+            # iterate through the list in order to find it. Keen observers may
+            # already be asking themselves "Before iterating, shouldn't we do a
+            # check to see if the Node we want to delete is the list's tail?".
+            # This is a great question. The reason we're iterating first and
+            # adding logic to check the tail later is due to the nature of our
+            # method. It's purpose is to delete the first Node containing the
+            # given data. If we immediately check the tail, we may skip a Node
+            # that contains the given data and thus violate the purpose of our
+            # method.
+
+            # Below we assign a variable called current_node which we'll use to
+            # iterate over our list in search of the Node we wish to delete. In
+            # the same way we've done before, we'll then use a while loop to
+            # continuously reassign current_node until it becomes the Node we
+            # wish to delete.
+
+            current_node = self.head
+
+            while current_node:
+
+                if current_node.data == data:
+
+                    # If we've finally found the Node we want to delete, we
+                    # first check to ensure that it's not the list's tail. If
+                    # it is, we have to perform a different operation than if
+                    # it isn't.
+
+                    if current_node is self.tail:
+
+                        # The Node we want to delete has been found, and it
+                        # turns out to be the list's tail. Deleting a
+                        # DoublyLinkedList's tail is similar to deleting it's
+                        # head. First, we reassign the tail to become the Node
+                        # at it's prev_node pointer. Then, we assign the new
+                        # tail's next_node pointer to be None. Both of these
+                        # steps happen below, on lines 177 and 178.
+
+                        self.tail = current_node.prev_node
+                        self.tail.next_node = None
+
+                    else:
+
+                        # If the Node we want to delete has been found and it
+                        # isn't the DoublyLinkedList's tail Node, we delete the
+                        # Node by ensuring no other Nodes point to it. This is
+                        # accomplished below on lines 195 and 205.
+
+                        # Since current_node is the Node we want to delete, we
+                        # need to make sure it's next_node (the Node after it
+                        # in the list) and prev_node (the Node before it in the
+                        # list) no longer point to it. Once that process is
+                        # complete, current_node becomes garbage collected
+                        # (deleted) because it is no longer being referenced in
+                        # memory.
+
+                        current_node.prev_node.next_node = current_node.next_node
+
+                        # First, on line 195 above, we target current_node's
+                        # prev_node. We reassign that Node's next_node pointer
+                        # to equal current_node's next_node. By doing this, we
+                        # ensure that current_node's prev_node is not only no
+                        # longer pointing to current_node but that it's
+                        # correctly pointing to current_node's next_node, which
+                        # preserves the integrity of our DoublyLinkedList.
+
+                        current_node.next_node.prev_node = current_node.prev_node
+
+                        # Next, on line 205 above, we target current_node's
+                        # next_node. We reassign that Node's prev_node pointer
+                        # to equal current_node's prev_node. By doing this we
+                        # have again ensured that current_node's next_node is
+                        # no longer pointing to it and that it's pointer is
+                        # correctly assigned to current_node's prev_node.
+
+                    # Now that current_node's next_node and prev_node pointers
+                    # are no longer pointing to current_node, it will be
+                    # deleted. Success! Since our job is done we simply return
+                    # a string that both indicates a successful operation to
+                    # the user and ceases execution of our method.
+
+                    return 'Node has been deleted.'
+
+                # If we've hit this point in the execution of our while loop,
+                # it means we haven't yet landed on the Node we wish to delete.
+                # So we reassign current_node to be it's next_node and then
+                # continue iterating. We perform this reassignment below on
+                # line 228.
+
+                current_node = current_node.next_node
+
+        # If either the list has no head Node (meaning that it's empty) or a
+        # Node with the given data is not found in the list, we raise a
+        # LookupError. Although not necessary, it indicates that the operation
+        # was not performed so that the user is aware.
+
+        raise LookupError("""No Node containing given value exists in Doubly
+                          Linked List.""")

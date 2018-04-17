@@ -234,3 +234,8 @@ class DoublyLinkedList(object):
 
         raise LookupError("""No Node containing given value exists in Doubly
                           Linked List.""")
+
+    def append(self, data):
+        """Method to add new Node at tail of DoublyLinkedList."""
+
+        

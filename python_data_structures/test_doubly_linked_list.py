@@ -174,3 +174,39 @@ def test_delete_method_raises_exception_if_node_not_found():
 
     with pytest.raises(LookupError):
         dll.delete_node(2)
+
+
+def test_append_method_assigns_head_and_tail_to_be_same_node_if_list_empty():
+    """Test that the append method of the DoublyLinkedList class correctly
+    assigns the list's head and tail to be the same Node if append is used on
+    an empty list."""
+
+    dll = DoublyLinkedList()
+    dll.append(1)
+
+    assert dll.tail is dll.head
+
+
+def test_append_method_correctly_reassigns_tail_to_newly_added_node():
+    """Test that the append method of the DoublyLinkedList class correctly
+    reassigns the list's tail to become the newly appended Node."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(1)
+    old_tail = dll.tail
+
+    dll.append(2)
+    assert dll.tail != old_tail and dll.tail.data != old_tail.data
+
+
+def test_append_method_assigns_old_tails_next_node_to_be_new_tail():
+    """Test that the append method of the DoublyLinkedList class assigns the
+    old tail's next_node pointer to be the new tail, preserving the integrity
+    of the list."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(0)
+    old_tail = dll.tail
+
+    dll.append(5)
+    assert old_tail.next_node is dll.tail

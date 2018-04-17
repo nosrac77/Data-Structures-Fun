@@ -210,3 +210,57 @@ def test_append_method_assigns_old_tails_next_node_to_be_new_tail():
 
     dll.append(5)
     assert old_tail.next_node is dll.tail
+
+
+def test_append_method_assigns_new_tails_prev_node_to_be_old_tail():
+    """Test that the append method of the DoublyLinkedList class assigns the
+    new tail's prev_node pointer to be the old tail, preserving the integrity
+    of the list."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(10)
+    old_tail = dll.tail
+
+    dll.append(20)
+    assert dll.tail.prev_node is old_tail
+
+
+def test_append_method_creates_instance_of_node_class_as_new_node():
+    """Test that the append method of the DoublyLinkedList class adds an
+    instance of the Node class as the new Node in the list."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(1)
+
+    dll.append(2)
+    assert isinstance(dll.tail, Node)
+
+
+def test_append_method_does_not_reassign_head_through_multiple_uses():
+    """Test that the append method of the DoublyLinkedList class doesn't
+    reassign the list's head after first use, even after multiple uses."""
+
+    dll = DoublyLinkedList()
+    dll.append(5)
+
+    head = dll.head
+
+    dll.append(10)
+    dll.append(15)
+
+    assert dll.head is head
+
+
+def test_append_method_correctly_reassigns_tail_through_multiple_uses():
+    """Test that the append method of the DoublyLinkedList class correctly
+    reassigns the list's tail after multiple uses."""
+
+    dll = DoublyLinkedList()
+    dll.append(3)
+
+    old_tail = dll.tail
+
+    dll.append(6)
+    dll.append(9)
+
+    assert dll.tail is not old_tail

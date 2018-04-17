@@ -86,25 +86,69 @@ class DoublyLinkedList(object):
         # OVERVIEW
         # Deleting a Node in a DoublyLinkedList is similar to how we delete a
         # Node from a Singly Linked List, with a few extra steps to ensure all
-        # Nodes are appropriately assigned. After making sure our list isn't
-        # empty, we then check to see if the Node we want to delete is the head
-        # of our list.
+        # Nodes are appropriately assigned. The relevant differences to be
+        # aware of are 1) that Nodes here have a new property prev_node
+        # pointer to the Node just before it in the list, and 2) that the list
+        # has a tail Node that always resides at the end of the list.
 
         if self.head:
 
+            # The first check is to ensure that the list is not empty by
+            # ensuring that it has a head. We do this above on line 94.
+
             if self.head.data == data:
 
+                # The check above only activates if the head Node happens to be
+                # the Node we're seeking to delete from the list. If it is, we
+                # must then check to see if the list is only comprised of one
+                # Node. If there's only one Node in the list, we have to
+                # perform a different action than if the Node has a neighbor.
+
                 if self.head.next_node:
+
+                    # To recap, if the Node we're trying to delete is the head
+                    # of our DoublyLinkedList and it also has at least one
+                    # other Node beside it in the list, we land here. We then
+                    # reassign the head to become it's next_node, which we do
+                    # below on line 118. Since the head has been reassigned,
+                    # the only other step is to reassign the new head's
+                    # prev_node pointer to be None (line 119 below). The Node
+                    # is now deleted!
 
                     self.head = self.head.next_node
                     self.head.prev_node = None
 
                 else:
 
+                    # If the Node we want to delete is the head Node, and the
+                    # list only contains one Node, we land here. Deleting a
+                    # Node in this case is relatively straight-forward.
+                    # Reassigning both the list's head and the tail to None
+                    # will do the job (lines 129 and 130 below).
+
                     self.head = None
                     self.tail = None
 
+                # In either case, the head Node will be deleted. The return
+                # statement below is to ensure that the method ceases it's
+                # execution and informs the user that the operation was
+                # successful.
+
                 return 'Node has been deleted.'
+
+            # If the Node we wish to delete is not the list's head, we must
+            # iterate through the list in order to find it. Keen observers may
+            # already be asking themselves "Before iterating, shouldn't we do a
+            # check to see if the Node we want to delete is the list's tail?".
+            # This is a great question. The reason we're iterating first and
+            # adding logic to check the tail later is due to the nature of our
+            # method. It's purpose is to delete the first Node containing the
+            # given data. If we immediately check the tail, we may skip a Node
+            # that contains the given data and thus violate the purpose of our
+            # method.
+
+            # Below we assign a variable called current_node which we'll use to
+            # iterate over our list in search of the Node we wish to delete.
 
             current_node = self.head
 

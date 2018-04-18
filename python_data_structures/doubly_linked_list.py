@@ -279,3 +279,6 @@ class DoublyLinkedList(object):
             # correctly assigned to be it's tail. Easy, right?
 
             self.head = self.tail
+
+    def shift(self):
+        """Method to remove and return value of tail in DoublyLinkedList."""

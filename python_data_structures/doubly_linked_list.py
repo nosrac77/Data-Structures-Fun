@@ -289,9 +289,20 @@ class DoublyLinkedList(object):
         # only difference being that instead of operating on the list's head
         # Node it instead operates on the list's tail Node.
 
+        # The first step is to ensure the list isn't empty. If it is, we can't
+        # remove and return the list's tail Node data because it isn't there.
+        # We perform this check on line 298 below. Note that we could have also
+        # checked for the list's head, as we've done in the past, but checking
+        # for the tail is another way of ensuring the list isn't empty.
+
         if self.tail:
 
-            tail_data = self.tail.data
+            # If the list contains at least one Node, we land here. We'll
+            # define a variable that contains the current tail's data. That way
+            # we can return the old tail's data after we reassign the list's
+            # tail. That variable, called old_tail_data, is defined below.
+
+            old_tail_data = self.tail.data
 
             if self.tail.prev_node:
 
@@ -303,6 +314,6 @@ class DoublyLinkedList(object):
                 self.tail = None
                 self.head = None
 
-            return tail_data
+            return old_tail_data
 
         raise IndexError("""Cannot perform shift on an empty list.""")

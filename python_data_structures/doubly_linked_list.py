@@ -83,20 +83,63 @@ class DoublyLinkedList(object):
         """Method to remove and return value of head Node in DoublyLinkedList
         class object."""
 
+        # OVERVIEW
+        # This method will do exactly what the pop method of our
+        # SinglyLinkedList does, with a few more steps to account for the
+        # DoublyLinkedList's added complexity.
+
+        # The first thing we'll do is check to see if our list is empty since
+        # we can't remove Nodes from an empty list. We perform this check
+        # below. The reason this check successfully determines whether or not
+        # our list is empty is because an empty list will have a head of None,
+        # and if the head is None the if statement below will not execute.
+
         if self.head:
+
+            # If the list contains at least one Node, we land here. We then
+            # create a variable that will serve to hold the old head's data, so
+            # that after we reassign the head we can easily return the old
+            # head's data by simply returning the variable. This variable is
+            # called old_head_data, and is created below.
 
             old_head_data = self.head.data
 
+            # Our next task is to check if the list contains more than one
+            # Node, since different operations must be performed if our list
+            # only contains one Node.
+
             if self.head.next_node:
+
+                # If our list has more than one Node, we land here. From this
+                # point all we have to do is reassign the head to become it's
+                # next_node and then reassign the new head's prev_node to point
+                # to None. After these steps are taken, we will have both
+                # correctly reassigned the head and deleted the old head by
+                # ensuring no other Nodes point to it. We take these two steps
+                # below.
 
                 self.head = self.head.next_node
                 self.head.prev_node = None
 
             else:
 
+                # If our list only contains one Node, we know that the list's
+                # head and tail both point to the same Node. So all we have to
+                # to delete that one Node is ensure that our list's head and
+                # tail are both None. This is done below. After this, our list
+                # will be empty.
+
                 self.head = None
                 self.tail = None
 
+            # After the above code has executed the list's head will have been
+            # appropriately reassigned. The only step left to take is return
+            # the old head's data. We do this below by returning old_head_data,
+            # which is the old head's data.
+
             return old_head_data
+
+        # The exception below will get raised only if the list we're trying to
+        # pop from is empty. Note that raising an exception is not necessary.
 
         raise IndexError("""Cannot perform pop on an empty list.""")

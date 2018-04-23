@@ -282,3 +282,27 @@ class DoublyLinkedList(object):
 
     def shift(self):
         """Method to remove and return value of tail in DoublyLinkedList."""
+
+        # OVERVIEW
+        # This method will perform and behave almost exactly like the pop
+        # method (on both our DoublyLinkedList and our SinglyLinkedList), the
+        # only difference being that instead of operating on the list's head
+        # Node it instead operates on the list's tail Node.
+
+        if self.tail:
+
+            tail_data = self.tail.data
+
+            if self.tail.prev_node:
+
+                self.tail = self.tail.prev_node
+                self.tail.next_node = None
+
+            else:
+
+                self.tail = None
+                self.head = None
+
+            return tail_data
+
+        raise IndexError("""Cannot perform shift on an empty list.""")

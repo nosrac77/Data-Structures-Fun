@@ -306,3 +306,43 @@ def test_shift_method_returns_tail_node_data():
     dll.add_node(5)
 
     assert dll.shift() == 5
+
+
+def test_shift_method_reassigns_tail_to_become_prev_node():
+    """Test that the shift method of the DoublyLinkedList class correctly
+    reassigns the tail Node to become it's prev_node pointer if the list
+    contains more than two Nodes."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(1)
+    dll.add_node(2)
+
+    tail_prev_node = dll.tail.prev_node
+    dll.shift()
+    assert dll.tail is tail_prev_node
+
+
+def test_shift_method_reassigns_tail_next_node_to_point_to_none():
+    """Test that the shift method of the DoublyLinkedList class reassigns the
+    new tail's next_node pointer to None."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(20)
+    dll.add_node(30)
+
+    dll.shift()
+    assert dll.tail.next_node is None
+
+
+def test_shift_method_reassigns_tail_and_returns_data_multiple_uses():
+    """Test that the shift method of the DoublyLinkedList class correctly
+    reassigns the tail and returns the old tail's Node data through multiple
+    uses."""
+
+    dll = DoublyLinkedList()
+    for num in range(10):
+        dll.add_node(num)
+
+    for _ in range(10):
+        old_tail = dll.tail
+        assert dll.shift() == old_tail.data and dll.tail is not old_tail

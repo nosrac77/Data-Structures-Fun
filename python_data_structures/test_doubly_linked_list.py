@@ -264,3 +264,45 @@ def test_append_method_correctly_reassigns_tail_through_multiple_uses():
     dll.append(9)
 
     assert dll.tail is not old_tail
+
+
+def test_shift_method_raises_exception_if_list_is_empty():
+    """Test that the shift method of the DoublyLinkedList class raises an
+    IndexError if the list is empty."""
+
+    dll = DoublyLinkedList()
+
+    with pytest.raises(IndexError):
+        dll.shift()
+
+
+def test_shift_method_assigns_head_node_to_none_if_list_length_is_one():
+    """Test that the shift method of the DoublyLinkedList class assigns the
+    head Node to become None if the list only contains one Node."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(1)
+
+    dll.shift()
+    assert dll.head is None
+
+
+def test_shift_method_assigns_tail_node_to_none_if_list_length_is_one():
+    """Test that the shift method of the DoublyLinkedList class assigns the
+    tail Node to become None if the list only contains one Node."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(1)
+
+    dll.shift()
+    assert dll.tail is None
+
+
+def test_shift_method_returns_tail_node_data():
+    """Test that the shift method of the DoublyLinkedList class returns the
+    tail Node's data."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(5)
+
+    assert dll.shift() == 5

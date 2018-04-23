@@ -264,8 +264,8 @@ def test_append_method_correctly_reassigns_tail_through_multiple_uses():
     dll.append(9)
 
     assert dll.tail is not old_tail
-
-
+    
+    
 def test_shift_method_raises_exception_if_list_is_empty():
     """Test that the shift method of the DoublyLinkedList class raises an
     IndexError if the list is empty."""
@@ -346,3 +346,85 @@ def test_shift_method_reassigns_tail_and_returns_data_multiple_uses():
     for _ in range(10):
         old_tail = dll.tail
         assert dll.shift() == old_tail.data and dll.tail is not old_tail
+        
+        
+def test_pop_method_raises_exception_if_list_is_empty():
+    """Test that the pop method of the DoublyLinkedList class raises an
+    IndexError if the list is empty."""
+
+    dll = DoublyLinkedList()
+
+    with pytest.raises(IndexError):
+        dll.pop()
+
+
+def test_pop_method_reassigns_head_to_become_none_if_list_length_is_one():
+    """Test that the pop method of the DoublyLinkedList class reassigns the
+    list's head to become None if the list only contains one Node."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(1)
+
+    dll.pop()
+    assert dll.head is None
+
+
+def test_pop_method_reassigns_tail_to_become_none_if_list_length_is_one():
+    """Test that the pop method of the DoublyLinkedList class reassigns the
+    list's tail to become None if the list only contains one Node."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(1)
+
+    dll.pop()
+    assert dll.tail is None
+
+
+def test_pop_method_returns_data_in_old_head_node():
+    """Test that the pop method of the DoublyLinkedList class returns the data
+    contained in the old head Node."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(5)
+
+    assert dll.pop() == 5
+
+
+def test_pop_method_reassigns_head_to_become_next_node():
+    """Test that the pop method of the DoublyLinkedList class correctly
+    reassigns the head to become it's next_node if the list contains more than
+    one Node."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(3)
+    dll.add_node(6)
+
+    head_next_node = dll.head.next_node
+    dll.pop()
+    assert dll.head is head_next_node
+
+
+def test_pop_method_newly_reassigned_head_prev_node_is_none():
+    """Test that the pop method of the DoublyLinkedList class assigns the
+    prev_node pointer of the newly reassigned head to be None."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(5)
+    dll.add_node(10)
+
+    dll.pop()
+    assert dll.head.prev_node is None
+
+
+def test_pop_method_correctly_reassigns_head_and_returns_data_multiple_uses():
+    """Test that the pop method of the DoublyLinkedList class correctly
+    reassigns the head and returns the old head's data after multiple uses."""
+
+    dll = DoublyLinkedList()
+
+    for num in range(10):
+        dll.add_node(num)
+
+    for _ in range(10):
+        old_head = dll.head
+        assert dll.pop() == old_head.data and dll.head is not old_head

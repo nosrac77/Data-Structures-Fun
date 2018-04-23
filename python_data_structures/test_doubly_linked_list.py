@@ -264,3 +264,85 @@ def test_append_method_correctly_reassigns_tail_through_multiple_uses():
     dll.append(9)
 
     assert dll.tail is not old_tail
+
+
+def test_shift_method_raises_exception_if_list_is_empty():
+    """Test that the shift method of the DoublyLinkedList class raises an
+    IndexError if the list is empty."""
+
+    dll = DoublyLinkedList()
+
+    with pytest.raises(IndexError):
+        dll.shift()
+
+
+def test_shift_method_assigns_head_node_to_none_if_list_length_is_one():
+    """Test that the shift method of the DoublyLinkedList class assigns the
+    head Node to become None if the list only contains one Node."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(1)
+
+    dll.shift()
+    assert dll.head is None
+
+
+def test_shift_method_assigns_tail_node_to_none_if_list_length_is_one():
+    """Test that the shift method of the DoublyLinkedList class assigns the
+    tail Node to become None if the list only contains one Node."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(1)
+
+    dll.shift()
+    assert dll.tail is None
+
+
+def test_shift_method_returns_tail_node_data():
+    """Test that the shift method of the DoublyLinkedList class returns the
+    tail Node's data."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(5)
+
+    assert dll.shift() == 5
+
+
+def test_shift_method_reassigns_tail_to_become_prev_node():
+    """Test that the shift method of the DoublyLinkedList class correctly
+    reassigns the tail Node to become it's prev_node pointer if the list
+    contains more than two Nodes."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(1)
+    dll.add_node(2)
+
+    tail_prev_node = dll.tail.prev_node
+    dll.shift()
+    assert dll.tail is tail_prev_node
+
+
+def test_shift_method_reassigns_tail_next_node_to_point_to_none():
+    """Test that the shift method of the DoublyLinkedList class reassigns the
+    new tail's next_node pointer to None."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(20)
+    dll.add_node(30)
+
+    dll.shift()
+    assert dll.tail.next_node is None
+
+
+def test_shift_method_reassigns_tail_and_returns_data_multiple_uses():
+    """Test that the shift method of the DoublyLinkedList class correctly
+    reassigns the tail and returns the old tail's Node data through multiple
+    uses."""
+
+    dll = DoublyLinkedList()
+    for num in range(10):
+        dll.add_node(num)
+
+    for _ in range(10):
+        old_tail = dll.tail
+        assert dll.shift() == old_tail.data and dll.tail is not old_tail

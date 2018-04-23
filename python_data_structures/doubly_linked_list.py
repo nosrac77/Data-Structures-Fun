@@ -304,16 +304,49 @@ class DoublyLinkedList(object):
 
             old_tail_data = self.tail.data
 
+            # The next check we have to perform is to see if the list
+            # contains more than one Node. If it does, we have to perform a
+            # different operation. There are a few ways to check if the list
+            # contains more than one Node, and one way is to check if the
+            # tail's prev_node pointer is pointing to None. We perform this
+            # check on line 318 below. The reason why this check will tell us
+            # if the list is empty or not is because the tail's prev_node
+            # pointer can only ever point to None if the tail Node is also the
+            # head Node, and the only time the tail Node and the head Node are
+            # both the same is when the list only contains one Node.
+
             if self.tail.prev_node:
+
+                # If the list contains more than one Node, we'll land here. At
+                # this point all we have to do is reassign the list's tail to
+                # become it's prev_node and then assign the newly reassigned
+                # tail's next_node pointer to become None. In doing this we
+                # effectively reassign the tail and eliminate the old tail by
+                # ensuring no Nodes are pointing to it. These two steps are
+                # done below.
 
                 self.tail = self.tail.prev_node
                 self.tail.next_node = None
 
             else:
 
+                # If the list only contains one Node, we land here. If the list
+                # only contains one Node, we know that the list's tail and the
+                # list's head are both the same Node. So all we have to do is
+                # reassign both the list's tail and head to become None, at
+                # which point our list would become empty. We do this below.
+
                 self.tail = None
                 self.head = None
 
+            # After the operations above are finished executing the list's tail
+            # will have been reassigned. At this point, all we have to do is
+            # return the data that was contained in the old tail. This is done
+            # below on line 347.
+
             return old_tail_data
+
+        # If our list is empty the exception below will be raised. Note that
+        # raising an exception is not necessary.
 
         raise IndexError("""Cannot perform shift on an empty list.""")

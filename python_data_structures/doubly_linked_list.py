@@ -80,5 +80,23 @@ class DoublyLinkedList(object):
             new_next_node.prev_node = self.head
 
     def pop(self):
-        """Method to remove and return value of head of DoublyLinkedList class
-        object."""
+        """Method to remove and return value of head Node in DoublyLinkedList
+        class object."""
+
+        if self.head:
+
+            old_head_data = self.head.data
+
+            if self.head.next_node:
+
+                self.head = self.head.next_node
+                self.head.prev_node = None
+
+            else:
+
+                self.head = None
+                self.tail = None
+
+            return old_head_data
+
+        raise IndexError("""Cannot perform pop on an empty list.""")

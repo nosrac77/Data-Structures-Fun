@@ -1,6 +1,7 @@
 """Module containing pytest tests for Doubly Linked List."""
 
 from doubly_linked_list import DoublyLinkedList, Node
+import pytest
 
 
 def test_add_node_method_adds_instance_of_node_to_list():
@@ -67,3 +68,45 @@ def test_add_node_method_properly_assigns_prev_node_pointer():
     dll.add_node(20)
 
     assert dll.tail.prev_node.data == 20
+
+
+def test_pop_method_raises_exception_if_list_is_empty():
+    """Test that the pop method of the DoublyLinkedList class raises an
+    IndexError if the list is empty."""
+
+    dll = DoublyLinkedList()
+
+    with pytest.raises(IndexError):
+        dll.pop()
+
+
+def test_pop_method_reassigns_head_to_become_none_if_list_length_is_one():
+    """Test that the pop method of the DoublyLinkedList class reassigns the
+    list's head to become None if the list only contains one Node."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(1)
+
+    dll.pop()
+    assert dll.head is None
+
+
+def test_pop_method_reassigns_tail_to_become_none_if_list_length_is_one():
+    """Test that the pop method of the DoublyLinkedList class reassigns the
+    list's tail to become None if the list only contains one Node."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(1)
+
+    dll.pop()
+    assert dll.tail is None
+
+
+def test_pop_method_returns_data_in_old_head_node():
+    """Test that the pop method of the DoublyLinkedList class returns the data
+    contained in the old head Node."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(5)
+
+    assert dll.pop() == 5

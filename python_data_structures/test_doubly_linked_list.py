@@ -110,3 +110,43 @@ def test_pop_method_returns_data_in_old_head_node():
     dll.add_node(5)
 
     assert dll.pop() == 5
+
+
+def test_pop_method_reassigns_head_to_become_next_node():
+    """Test that the pop method of the DoublyLinkedList class correctly
+    reassigns the head to become it's next_node if the list contains more than
+    one Node."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(3)
+    dll.add_node(6)
+
+    head_next_node = dll.head.next_node
+    dll.pop()
+    assert dll.head is head_next_node
+
+
+def test_pop_method_newly_reassigned_head_prev_node_is_none():
+    """Test that the pop method of the DoublyLinkedList class assigns the
+    prev_node pointer of the newly reassigned head to be None."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(5)
+    dll.add_node(10)
+
+    dll.pop()
+    assert dll.head.prev_node is None
+
+
+def test_pop_method_correctly_reassigns_head_and_returns_data_multiple_uses():
+    """Test that the pop method of the DoublyLinkedList class correctly
+    reassigns the head and returns the old head's data after multiple uses."""
+
+    dll = DoublyLinkedList()
+
+    for num in range(10):
+        dll.add_node(num)
+
+    for _ in range(10):
+        old_head = dll.head
+        assert dll.pop() == old_head.data and dll.head is not old_head

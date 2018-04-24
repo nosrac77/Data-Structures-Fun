@@ -79,7 +79,6 @@ class DoublyLinkedList(object):
 
             new_next_node.prev_node = self.head
 
-
     def delete_node(self, data):
         """Method to delete first Node found containing given data, starting
         from head."""
@@ -351,8 +350,7 @@ class DoublyLinkedList(object):
         # raising an exception is not necessary.
 
         raise IndexError("""Cannot perform shift on an empty list.""")
-        
-        
+
     def pop(self):
         """Method to remove and return value of head Node in DoublyLinkedList
         class object."""

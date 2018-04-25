@@ -49,6 +49,8 @@ Above is a visual representation of what a Singly Linked List might look like in
 
 **Singly Linked List Operations** - An implementation of a Singly Linked List should support the following operations:
 
+- **Insert** - Adds a new Node containing the given data to the Singly Linked List. This new Node must become the list's new head in order to preserve the integrity of the list.
+
 **Singly Linked List Attributes** - An implementation of a Singly Linked List must have at least the following attributes:
 
 - **Head** - The Node at the "beginning" of the list, the head is the only essential component to a Singly Linked List and is used to perform every operation that this ADT supports. Without this pointer, or something similar to it, a Singly Linked List cannot be properly implemented.

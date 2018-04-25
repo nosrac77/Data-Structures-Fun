@@ -57,6 +57,8 @@ Above is a visual representation of what a Singly Linked List might look like in
 
 - **Display** - Creates a visual representation of the Singly Linked List, showing all Nodes and their pointers.
 
+- **Pop** - Removes and returns the head of the Singly Linked List. The list's head must be re-assigned to the next Node to preserve the integrity of the list.
+
 **Singly Linked List Attributes** - An implementation of a Singly Linked List must have at least the following attributes:
 
 - **Head** - The Node at the "beginning" of the list, the head is the only essential component to a Singly Linked List and is used to perform every operation that this ADT supports. Without this pointer, or something similar to it, a Singly Linked List cannot be properly implemented.

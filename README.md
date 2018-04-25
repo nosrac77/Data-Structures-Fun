@@ -53,7 +53,7 @@ Above is a visual representation of what a Singly Linked List might look like in
 
 - **Remove** - Removes a Node from the list containing the given data (given such a Node exists).
 
-- 
+- **Search** - Searches for a Node in the list containing the given data. If the Node is found, it is returned.
 
 **Singly Linked List Attributes** - An implementation of a Singly Linked List must have at least the following attributes:
 

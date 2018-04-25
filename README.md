@@ -55,6 +55,8 @@ Above is a visual representation of what a Singly Linked List might look like in
 
 - **Search** - Searches for a Node in the list containing the given data. If the Node is found, it is returned.
 
+- **Display** - Creates a visual representation of the Singly Linked List, showing all Nodes and their pointers.
+
 **Singly Linked List Attributes** - An implementation of a Singly Linked List must have at least the following attributes:
 
 - **Head** - The Node at the "beginning" of the list, the head is the only essential component to a Singly Linked List and is used to perform every operation that this ADT supports. Without this pointer, or something similar to it, a Singly Linked List cannot be properly implemented.

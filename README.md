@@ -75,5 +75,9 @@ Above is a visual representation of what a Singly Linked List might look like in
 
 **Overview** - The Doubly Linked List is an ADT comprised of one or more Nodes that "link" together by way of bilateral pointers.
 
+**Doubly Linked List Operations** - An implementation of a Doubly Linked List should support the following operations:
+
+- **Insert**
+
 **References:**
 - 1 - [Wikipedia](https://en.wikipedia.org/wiki/Abstract_data_type)

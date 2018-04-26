@@ -264,8 +264,8 @@ def test_append_method_correctly_reassigns_tail_through_multiple_uses():
     dll.append(9)
 
     assert dll.tail is not old_tail
-    
-    
+
+
 def test_shift_method_raises_exception_if_list_is_empty():
     """Test that the shift method of the DoublyLinkedList class raises an
     IndexError if the list is empty."""
@@ -346,8 +346,8 @@ def test_shift_method_reassigns_tail_and_returns_data_multiple_uses():
     for _ in range(10):
         old_tail = dll.tail
         assert dll.shift() == old_tail.data and dll.tail is not old_tail
-        
-        
+
+
 def test_pop_method_raises_exception_if_list_is_empty():
     """Test that the pop method of the DoublyLinkedList class raises an
     IndexError if the list is empty."""
@@ -428,3 +428,33 @@ def test_pop_method_correctly_reassigns_head_and_returns_data_multiple_uses():
     for _ in range(10):
         old_head = dll.head
         assert dll.pop() == old_head.data and dll.head is not old_head
+
+
+def test_display_method_returns_string():
+    """Test that the display method of the DoublyLinkedList class returns a
+    string data type."""
+
+    dll = DoublyLinkedList()
+    dll.add_node(1)
+
+    assert type(dll.display()) is str
+
+
+def test_display_method_returns_accurate_representation_of_nodes_in_list():
+    """Test that the display method of the DoublyLinkedList class returns an
+    accurate reflection of all Nodes in the list."""
+
+    dll = DoublyLinkedList()
+    for num in range(3):
+        dll.add_node(num)
+
+    assert dll.display() == 'None <- [ 2 ] <- -> [ 1 ] <- -> [ 0 ] -> None'
+
+
+def test_display_method_returns_string_of_none_if_list_is_empty():
+    """Test that the display method of the DoublyLinkedList class returns the
+    string of None if the list is empty."""
+
+    dll = DoublyLinkedList()
+
+    assert dll.display() == 'None'

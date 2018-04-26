@@ -449,3 +449,12 @@ def test_display_method_returns_accurate_representation_of_nodes_in_list():
         dll.add_node(num)
 
     assert dll.display() == 'None <- [ 2 ] <- -> [ 1 ] <- -> [ 0 ] -> None'
+
+
+def test_display_method_returns_string_of_none_if_list_is_empty():
+    """Test that the display method of the DoublyLinkedList class returns the
+    string of None if the list is empty."""
+
+    dll = DoublyLinkedList()
+
+    assert dll.display() == 'None'

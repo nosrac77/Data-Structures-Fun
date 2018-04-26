@@ -68,7 +68,7 @@ Above is a visual representation of what a Singly Linked List might look like in
 
 - **Next_node** - A pointer to the next node in the Singly Linked List, this attribute is what makes "linking" the list possible. Without these pointers, creating the Singly Linked List is not possible. Assigning / re-assigning these pointers in the appropriate way is crucial to preserve the integrity of the list.
 
-- **Data** - This attributes is the means by which a Node holds data. Although not entirely necessary to form a proper Singly Linked List, without this attribute the list would simply become several empty Nodes linked together by pointers.
+- **Data** - This attribute allows a Node in the list to hold data. Although not entirely necessary to form a proper Singly Linked List, without this attribute the list would simply become several empty Nodes linked together by pointers.
 
 #### Doubly Linked List
 
@@ -92,9 +92,11 @@ Above is a visual representation of what a Singly Linked List might look like in
 
 **Node Attributes** - The Nodes in a Doubly Linked List tend to have the following attributes:
 
-- **Next_node** - A pointer to the next node in the Doubly Linked List, this attribute is what makes "linking" the list possible. Without these pointers, creating the Doubly Linked List is not possible. Assigning / re-assigning these pointers in the appropriate way is crucial to preserve the integrity of the list.
+- **Next_node** - A pointer to the next node in the Doubly Linked List, this attribute is what makes "linking" the list possible.
 
-- **Data** - This attributes is the means by which a Node holds data. Although not entirely necessary to form a proper Doubly Linked List, without this attribute the list would simply become several empty Nodes linked together by pointers.
+- **Prev_node** - A pointer to the previous node in the Doubly Linked List, this attribute is what makes "linking" the list possible. Without these pointers, creating the Doubly Linked List is not possible. Assigning / re-assigning these pointers, along with the next_node pointers, in the appropriate way is crucial to preserve the integrity of the list.
+
+- **Data** - This attribute allows a Node in the list to hold data. Although not entirely necessary to form a proper Doubly Linked List, without this attribute the list would simply become several empty Nodes linked together by pointers.
 
 **References:**
 - 1 - [Wikipedia](https://en.wikipedia.org/wiki/Abstract_data_type)

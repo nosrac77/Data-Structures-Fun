@@ -40,6 +40,40 @@ Above is a visual representation of what a Singly Linked List might look like in
 | Name | Big-O Lookup/Search |
 | :-------------: | :-------------: |
 | Singly Linked List | O(n) |
+| Doubly Linked List | O(n) |
+
+### Data Structures List
+
+#### Singly Linked List
+
+**Overview** - The Singly Linked List is an ADT comprised of one or more Nodes that "link" together by way of unilateral pointers.
+
+**Singly Linked List Operations** - An implementation of a Singly Linked List should support the following operations:
+
+- **Insert** - Adds a new Node containing the given data to the Singly Linked List. This new Node must become the list's new head in order to preserve the integrity of the list.
+
+- **Remove** - Removes a Node from the list containing the given data (given such a Node exists).
+
+- **Search** - Searches for a Node in the list containing the given data. If the Node is found, it is returned.
+
+- **Display** - Creates a visual representation of the Singly Linked List, showing all Nodes and their pointers.
+
+- **Pop** - Removes and returns the head of the Singly Linked List. The list's head must be re-assigned to the next Node to preserve the integrity of the list.
+
+**Singly Linked List Attributes** - An implementation of a Singly Linked List must have at least the following attributes:
+
+- **Head** - The Node at the "beginning" of the list, the head is the only essential component to a Singly Linked List and is used to perform every operation that this ADT supports. Without this pointer, or something similar to it, a Singly Linked List cannot be properly implemented.
+
+**Node Attributes** - The Nodes in a Singly Linked List tend to have the following attributes:
+
+- **Next_node** - A pointer to the next node in the Singly Linked List, this attribute is what makes "linking" the list possible. Without these pointers, creating the Singly Linked List is not possible. Assigning / re-assigning these pointers in the appropriate way is crucial to preserve the integrity of the list.
+
+
+- **Data** - This attributes is the means by which a Node holds data. Although not entirely necessary to form a proper Singly Linked List, without this attribute the list would simply become several empty Nodes linked together by pointers.
+
+#### Doubly Linked List
+
+**Overview** - The Doubly Linked List is an ADT comprised of one or more Nodes that "link" together by way of bilateral pointers.
 
 ### Data Structures List
 

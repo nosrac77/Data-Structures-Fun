@@ -46,7 +46,7 @@ Above is a visual representation of what a Singly Linked List might look like in
 
 #### Singly Linked List
 
-**Overview** - The Singly Linked List is an ADT comprised of one or more Nodes that "link" together by way of unilateral pointers.
+**Overview** - The Singly Linked List is an ADT comprised of one or more Nodes that "link" together by way of unilateral pointers. Similar data structures include the Stack and the Doubly Linked List.
 
 **Singly Linked List Operations** - An implementation of a Singly Linked List should support the following operations:
 
@@ -73,11 +73,11 @@ Above is a visual representation of what a Singly Linked List might look like in
 
 #### Doubly Linked List
 
-**Overview** - The Doubly Linked List is an ADT comprised of one or more Nodes that "link" together by way of bilateral pointers.
+**Overview** - Essentially a Singly Linked List with additional pointers, the Doubly Linked List is an ADT comprised of one or more Nodes that "link" together by way of bilateral pointers. Similar data structures include the Queue and the Singly Linked List.
 
 **Doubly Linked List Operations** - An implementation of a Doubly Linked List should support the following operations:
 
-- **Insert**
+- **Insert** - Adds a new Node containing the given data to the Doubly Linked List. This new Node must become the list's new head (and in some cases, the list's tail) in order to preserve the integrity of the list.
 
 **References:**
 - 1 - [Wikipedia](https://en.wikipedia.org/wiki/Abstract_data_type)

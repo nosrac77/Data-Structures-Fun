@@ -89,5 +89,7 @@ Above is a visual representation of what a Singly Linked List might look like in
 
 - **Pop** - Removes and returns the head of the Doubly Linked List. The list's head must be re-assigned to the next Node to preserve the integrity of the list.
 
+- **Shift** - Removes and returns the tail of the Doubly Linked List. The list's tail must be re-assigned to the previous Node to preserve the integrity of the list.
+
 **References:**
 - 1 - [Wikipedia](https://en.wikipedia.org/wiki/Abstract_data_type)

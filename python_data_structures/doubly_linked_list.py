@@ -429,18 +429,24 @@ class DoublyLinkedList(object):
         # (which will represent the Node's next_node pointer) and the left
         # (which will represent the Node's prev_node pointer).
 
-        # The variable mentioned above is defined below on line 443, called
+        # The variable mentioned above is defined below on line 449, called
         # all_nodes. An important thing to note here is that all_nodes is
-        # initially an empty list. You may be asking yourself "why not make it
-        # an empty string and use string concatenation to add the Node data?".
-        # That's a great question. The answer is that string concatenation in
+        # initially a list containing the string of None. If you didn't read
+        # the display method comments on the SinglyLinkedList, you may be
+        # asking yourself "why not make it an empty string and use string
+        # concatenation to add the Node data?". That's a great question. The
+        # answer comes in two parts. The first concerns the string of None. We
+        # place this in our all_nodes variable from the start because, if the
+        # list is empty, our display method should still print 'None' as it's
+        # an accurate reflection of the current state of the list. The second
+        # concerns using a list over an empty string. String concatenation in
         # Python is an O(n^2) operation, an inefficient time complexity
         # considering the simple nature of our task. To circumnavigate this
         # issue, one can simply append string elements to an empty list and
         # return a ''.join() on that list instead. The end result is the same
         # and the time complexity is dropped to O(n), which is much better.
 
-        all_nodes = []
+        all_nodes = ['None']
 
         # Now we must do as we've done in previous methods, which is iterate
         # over the Doubly Linked List. To do this we first define a variable
@@ -451,17 +457,45 @@ class DoublyLinkedList(object):
 
         while current_node:
 
-            # We're now iterating over our list, appending the correct strings
-            # in the correct order to properly display the Doubly Linked List.
-            # Note that below we must first use the str() method on our data.
-            # This only needs to happen if current_node.data isn't inherently a
-            # string.
+            # We're now iterating over our list. You'll notice that this looks
+            # very similar to the display method of the SinglyLinkedList with
+            # the addition of the two if statements below.
 
-            all_nodes.append('[ ' + str(current_node.data) + ' ]' + '<- ' + ' -> ')
+            # The first if statement we'll encounter checks to see if our
+            # current_node is the list's head. If it is, we'll want to append a
+            # left-facing text-based arrow to our all_nodes variable before
+            # appending current_node's data. This is because we want to reflect
+            # the prev_node pointer of our list's head, which in a
+            # DoublyLinkedList points towards None. This check occurs below on
+            # line 472.
+
+            if current_node is self.head:
+                all_nodes.append(' <- ')
+
+            # The if statement below on line 486 ensures that when the final
+            # Node is reached our all_nodes variable will only append the
+            # right-facing text-based arrow instead of both arrows. As you may
+            # recall, the final Node of both the SinglyLinkedList and the
+            # DoublyLinkedList point to None, which indicates that we've
+            # reached the "end" of our list. That final Node will have a
+            # next_node pointer to None, but since None is not a Node object,
+            # it cannot have a prev_node pointer back to that final Node.
+            # Therefore, the left-facing text-based arrow (which indicates a
+            # prev_node pointer) is both unnecessary and inaccurate.
+
+            if current_node is self.tail:
+                all_nodes.append('[ ' + str(current_node.data) + ' ]' + ' -> ')
+                break
+
+            # Line 494 below appends the current_node's data along with the two
+            # appropriate text-based arrows, indicating prev_node and next_node
+            # pointers where applicable.
+
+            all_nodes.append('[ ' + str(current_node.data) + ' ]' + ' <-' + ' -> ')
 
             # As we've done plenty of times by now, we then reassign
             # current_node to become it's next_node to continue iteration. This
-            # is accomplished below, on line 466.
+            # is accomplished below, on line 500.
 
             current_node = current_node.next_node
 
@@ -469,7 +503,7 @@ class DoublyLinkedList(object):
         # Doubly Linked List. All data from all Nodes has been properly stored
         # and is ready to be returned. The final step we must take before
         # returning that data is to append one final string of 'None' which
-        # represents the end of our list. We do this below on line 474.
+        # represents the end of our list. We do this below on line 508.
 
         all_nodes.append('None')
 

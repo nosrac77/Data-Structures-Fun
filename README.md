@@ -27,7 +27,7 @@ The second has to do with pure academics. In programming, basic knowledge of Dat
 A great starting example of an ADT is a **Singly Linked List** (*which we will explore in much greater depth later on*). Although it can be implemented in many ways, a proper Singly Linked List must support a few basic operations and must possess certain attributes. Check out the code below.
 
 ```python
-# Singly Linked List
+# Singly Linked List in Python
 
 [ 1 ] -> [ 2 ] -> [ 3 ] -> None
   |             |           |
@@ -42,7 +42,13 @@ Above is a visual representation of what a Singly Linked List might look like in
 | Singly Linked List | O(n) |
 | Doubly Linked List | O(n) |
 
-### Data Structures List
+### Data Structures Descriptions
+
+While knowing the details of a particular ADT isn't essential to create a good implementation, it can certainly help. See the list below for overviews, operations, attributes, and Node attributes of all ADT's currently being implemented in this repository.
+
+*Note: As I add more ADT's the list below will grow to reflect that.*
+
+---
 
 #### Singly Linked List
 
@@ -70,6 +76,8 @@ Above is a visual representation of what a Singly Linked List might look like in
 
 - **Data** - This attribute allows a Node in the list to hold data. Although not entirely necessary to form a proper Singly Linked List, without this attribute the list would simply become several empty Nodes linked together by pointers.
 
+---
+
 #### Doubly Linked List
 
 **Overview** - Essentially a Singly Linked List with additional pointers, the Doubly Linked List is an ADT comprised of one or more Nodes that "link" together by way of bilateral pointers. Similar data structures include the Queue and the Singly Linked List.
@@ -90,6 +98,13 @@ Above is a visual representation of what a Singly Linked List might look like in
 
 - **Shift** - Removes and returns the tail of the Doubly Linked List. The list's tail must be re-assigned to the previous Node to preserve the integrity of the list.
 
+**Doubly Linked List Attributes** - An implementation of a Doubly Linked List must have at least the following attributes:
+
+- **Head** - The Node at the "beginning" of the list, the head is the first of two essential components to a Doubly Linked List and is used to perform many operations that this ADT supports. Without this pointer, or something similar to it, a Doubly Linked List cannot be properly implemented.
+
+- **Tail** - The Node at the "end" of the list, the tail is the second of two essential components to a Doubly Linked List and is used to perform some operations that this ADT supports. Without this pointer, or something similar to it, a Doubly Linked List cannot be properly implemented.
+
+
 **Node Attributes** - The Nodes in a Doubly Linked List tend to have the following attributes:
 
 - **Next_node** - A pointer to the next node in the Doubly Linked List, this attribute is what makes "linking" the list possible.
@@ -97,35 +112,6 @@ Above is a visual representation of what a Singly Linked List might look like in
 - **Prev_node** - A pointer to the previous node in the Doubly Linked List, this attribute is what makes "linking" the list possible. Without these pointers, creating the Doubly Linked List is not possible. Assigning / re-assigning these pointers, along with the next_node pointers, in the appropriate way is crucial to preserve the integrity of the list.
 
 - **Data** - This attribute allows a Node in the list to hold data. Although not entirely necessary to form a proper Doubly Linked List, without this attribute the list would simply become several empty Nodes linked together by pointers.
-
-### Data Structures List
-
-#### Singly Linked List
-
-**Overview** - The Singly Linked List is an ADT comprised of one or more Nodes that "link" together by way of unilateral pointers.
-
-**Singly Linked List Operations** - An implementation of a Singly Linked List should support the following operations:
-
-- **Insert** - Adds a new Node containing the given data to the Singly Linked List. This new Node must become the list's new head in order to preserve the integrity of the list.
-
-- **Remove** - Removes a Node from the list containing the given data (given such a Node exists).
-
-- **Search** - Searches for a Node in the list containing the given data. If the Node is found, it is returned.
-
-- **Display** - Creates a visual representation of the Singly Linked List, showing all Nodes and their pointers.
-
-- **Pop** - Removes and returns the head of the Singly Linked List. The list's head must be re-assigned to the next Node to preserve the integrity of the list.
-
-**Singly Linked List Attributes** - An implementation of a Singly Linked List must have at least the following attributes:
-
-- **Head** - The Node at the "beginning" of the list, the head is the only essential component to a Singly Linked List and is used to perform every operation that this ADT supports. Without this pointer, or something similar to it, a Singly Linked List cannot be properly implemented.
-
-**Node Attributes** - The Nodes in a Singly Linked List tend to have the following attributes:
-
-- **Next_node** - A pointer to the next node in the Singly Linked List, this attribute is what makes "linking" the list possible. Without these pointers, creating the Singly Linked List is not possible. Assigning / re-assigning these pointers in the appropriate way is crucial to preserve the integrity of the list.
-
-
-- **Data** - This attributes is the means by which a Node holds data. Although not entirely necessary to form a proper Singly Linked List, without this attribute the list would simply become several empty Nodes linked together by pointers.
 
 **References:**
 - 1 - [Wikipedia](https://en.wikipedia.org/wiki/Abstract_data_type)

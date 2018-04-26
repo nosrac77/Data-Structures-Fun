@@ -77,7 +77,17 @@ Above is a visual representation of what a Singly Linked List might look like in
 
 **Doubly Linked List Operations** - An implementation of a Doubly Linked List should support the following operations:
 
-- **Insert** - Adds a new Node containing the given data to the Doubly Linked List. This new Node must become the list's new head (and in some cases, the list's tail) in order to preserve the integrity of the list.
+- **Insert** - Adds a new Node containing the given data to the "beginning" of the Doubly Linked List. This new Node must become the list's new head in order to preserve the integrity of the list.
+
+- **Append** - Adds a new Node containing the given data to the "end" of the Doubly Linked List. This new Node must become the list's new tail in order to preserve the integrity of the list.
+
+- **Remove** - Removes a Node from the list containing the given data (given such a Node exists).
+
+- **Search** - Searches for a Node in the list containing the given data. If the Node is found, it is returned.
+
+- **Display** - Creates a visual representation of the Doubly Linked List, showing all Nodes and their pointers.
+
+- **Pop** - Removes and returns the head of the Doubly Linked List. The list's head must be re-assigned to the next Node to preserve the integrity of the list.
 
 **References:**
 - 1 - [Wikipedia](https://en.wikipedia.org/wiki/Abstract_data_type)

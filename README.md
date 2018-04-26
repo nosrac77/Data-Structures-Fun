@@ -40,10 +40,13 @@ Above is a visual representation of what a Singly Linked List might look like in
 | Name | Big-O Lookup/Search |
 | :-------------: | :-------------: |
 | Singly Linked List | O(n) |
+| Doubly Linked List | O(n) |
 
 ### Data Structures List
 
 #### Doubly Linked List
+
+**Overview**
 
 **References:**
 - 1 - [Wikipedia](https://en.wikipedia.org/wiki/Abstract_data_type)

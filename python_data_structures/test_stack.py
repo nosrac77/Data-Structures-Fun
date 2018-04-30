@@ -56,3 +56,35 @@ def test_push_method_assigns_stack_top_to_newly_added_data():
     stack.push(10)
 
     assert stack.top == 10
+
+
+def test_push_method_assigns_stack_top_to_equal_stack_list_at_index_zero():
+    """Test that the push method of the Stack class object assigns the stack's
+    top attribute to equal the data contained at index zero of the Stack's
+    stack list."""
+
+    stack = Stack()
+    stack.push(3)
+
+    assert stack.top == stack.stack[0]
+
+
+def test_push_method_correctly_reassigns_stack_top_through_multiple_pushes():
+    """Test that the push method of the Stack class object correctly reassigns
+    the Stack's top through multiple calls of the push method."""
+
+    stack = Stack()
+
+    for data in range(10):
+        stack.push(data)
+        assert stack.top == data and stack.stack[0] == data
+
+
+def test_push_method_sets_is_empty_attribute_to_false():
+    """Test that the push method of the Stack class object sets the is_empty
+    attribute to False."""
+
+    stack = Stack()
+    stack.push(1)
+
+    assert stack.is_empty is False

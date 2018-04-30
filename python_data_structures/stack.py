@@ -10,3 +10,9 @@ class Stack(object):
         self.stack = []
         self.top = None
         self.is_empty = True
+
+    def push(self, data):
+        """Method to add given data to Stack class object."""
+
+        self.stack.insert(0, data)
+        self.top = self.stack[0]

@@ -16,3 +16,4 @@ class Stack(object):
 
         self.stack.insert(0, data)
         self.top = self.stack[0]
+        self.is_empty = False

@@ -26,3 +26,33 @@ def test_newly_initialized_stack_top_attribute_equals_none():
 
     stack = Stack()
     assert stack.top is None
+
+
+def test_push_method_adds_given_data_to_stack_list():
+    """Test that the push method of the Stack class object adds the given
+    data to the Stack's stack list."""
+
+    stack = Stack()
+    stack.push(1)
+
+    assert 1 in stack.stack
+
+
+def test_push_method_adds_given_data_to_index_zero_of_stack_list():
+    """Test that the push method of the Stack class object adds the given
+    data to the Stack's stack list at index zero."""
+
+    stack = Stack()
+    stack.push(5)
+
+    assert stack.stack[0] == 5
+
+
+def test_push_method_assigns_stack_top_to_newly_added_data():
+    """Test that the push method of the Stack class object assigns the stack's
+    top attribute to equal the newly added data."""
+
+    stack = Stack()
+    stack.push(10)
+
+    assert stack.top == 10

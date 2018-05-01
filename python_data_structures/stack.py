@@ -68,3 +68,23 @@ class Stack(object):
         # point to the last element in our list.
 
         self.top = self.stack[-1]
+
+    def pop(self):
+        """Method to remove and return top of Stack class object."""
+
+        if self.stack:
+
+            old_head = self.stack.pop()
+
+            if len(self.stack) == 0:
+
+                self.is_empty is True
+                self.top is None
+
+            else:
+
+                self.top = self.stack[-1]
+
+            return old_head
+
+        raise IndexError("""Cannot pop from an empty Stack.""")

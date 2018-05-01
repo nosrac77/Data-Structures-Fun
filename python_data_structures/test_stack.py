@@ -45,7 +45,7 @@ def test_push_method_adds_given_data_to_index_zero_of_stack_list():
     stack = Stack()
     stack.push(5)
 
-    assert stack.stack[0] == 5
+    assert stack.stack[-1] == 5
 
 
 def test_push_method_assigns_stack_top_to_newly_added_data():
@@ -66,7 +66,7 @@ def test_push_method_assigns_stack_top_to_equal_stack_list_at_index_zero():
     stack = Stack()
     stack.push(3)
 
-    assert stack.top == stack.stack[0]
+    assert stack.top == stack.stack[-1]
 
 
 def test_push_method_correctly_reassigns_stack_top_through_multiple_pushes():
@@ -77,7 +77,7 @@ def test_push_method_correctly_reassigns_stack_top_through_multiple_pushes():
 
     for data in range(10):
         stack.push(data)
-        assert stack.top == data and stack.stack[0] == data
+        assert stack.top == data and stack.stack[-1] == data
 
 
 def test_push_method_sets_is_empty_attribute_to_false():

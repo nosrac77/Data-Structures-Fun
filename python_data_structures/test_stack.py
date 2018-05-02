@@ -88,3 +88,6 @@ def test_push_method_sets_is_empty_attribute_to_false():
     stack.push(1)
 
     assert stack.is_empty is False
+
+
+def test_pop_method_returns_data_

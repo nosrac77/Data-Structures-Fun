@@ -38,7 +38,7 @@ class Stack(object):
         # performed below on line 41 and the reassignment of the is_empty
         # attribute is performed on line 43.
 
-        if not self.stack:
+        if self.is_empty:
 
             self.is_empty = False
 
@@ -69,22 +69,22 @@ class Stack(object):
 
         self.top = self.stack[-1]
 
-    def pop(self):
+    def pop_from_stack(self):
         """Method to remove and return top of Stack class object."""
 
-        if self.stack:
+        if not self.is_empty:
 
-            old_head = self.stack.pop()
+            old_top = self.stack.pop()
 
             if len(self.stack) == 0:
 
-                self.is_empty is True
-                self.top is None
+                self.is_empty = True
+                self.top = None
 
             else:
 
                 self.top = self.stack[-1]
 
-            return old_head
+            return old_top
 
         raise IndexError("""Cannot pop from an empty Stack.""")

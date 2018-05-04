@@ -72,6 +72,14 @@ class Stack(object):
     def pop(self):
         """Method to remove and return top of Stack class object."""
 
+        # OVERVIEW
+        # The goal of this method is to remove and return our Stack's top.
+        # Since our Stack is essentially a Python list, we can (and will) use a
+        # built-in method to accomplish this task, being careful to perform a
+        # few checks and reassign the Stack's top along the way.
+
+        # Below, on line...
+
         if not self.is_empty:
 
             old_top = self.stack.pop()

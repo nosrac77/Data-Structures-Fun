@@ -69,7 +69,7 @@ class Stack(object):
 
         self.top = self.stack[-1]
 
-    def pop_from_stack(self):
+    def pop(self):
         """Method to remove and return top of Stack class object."""
 
         if not self.is_empty:

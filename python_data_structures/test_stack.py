@@ -90,45 +90,69 @@ def test_push_method_sets_is_empty_attribute_to_false():
     assert stack.is_empty is False
 
 
-def test_pop_from_stack_method_returns_stack_top_data():
-    """Test that the pop_from_stack method of the Stack class object returns
-    the data of the Stack's top."""
+def test_pop_method_returns_stack_top_data():
+    """Test that the pop method of the Stack class object returns the data of
+    the Stack's top."""
 
     stack = Stack()
     stack.push(1)
 
     stack_top = stack.top
-    assert stack.pop_from_stack() == stack_top
+    assert stack.pop() == stack_top
 
 
-def test_pop_from_stack_method_returns_stack_list_at_index_negative_one():
-    """Test that the pop_from_stack method of the Stack class object returns
-    the element of the Stack's stack list at the index of negative one."""
+def test_pop_method_returns_stack_list_at_index_negative_one():
+    """Test that the pop method of the Stack class object returns the element
+    of the Stack's stack list at the index of negative one."""
 
     stack = Stack()
     stack.push(1)
 
     data_at_index_negative_one = stack.stack[-1]
-    assert stack.pop_from_stack() == data_at_index_negative_one
+    assert stack.pop() == data_at_index_negative_one
 
 
-def test_pop_from_stack_method_raises_exception_if_stack_is_empty():
-    """Test that the pop_from_stack method of the Stack class object raises an
-    IndexError if the Stack is empty."""
+def test_pop_method_raises_exception_if_stack_is_empty():
+    """Test that the pop method of the Stack class object raises an IndexError
+    if the Stack is empty."""
 
     stack = Stack()
 
     with pytest.raises(IndexError):
-        stack.pop_from_stack()
+        stack.pop()
 
 
-def test_pop_from_stack_method_sets_is_empty_to_true_if_stack_len_is_one():
-    """Test that the pop_from_stack method of the Stack class object sets the
-    Stack's is_empty attribute to True if the Stack only contains one item
-    (rendering the Stack empty after the pop_from_stack method is called)."""
+def test_pop_method_sets_is_empty_to_true_if_stack_len_is_one():
+    """Test that the pop method of the Stack class object sets the Stack's
+    is_empty attribute to True if the Stack only contains one item (rendering
+    the Stack empty after the pop method is called)."""
 
     stack = Stack()
     stack.push(5)
 
-    stack.pop_from_stack()
+    stack.pop()
     assert stack.is_empty is True
+
+
+def test_pop_method_sets_top_to_none_if_stack_len_is_one():
+    """Test that the pop method of the Stack class object sets the Stack's top
+    attribute to None if the Stack only contains one item (rendering the Stack
+    empty after the pop method is called)."""
+
+    stack = Stack()
+    stack.push(77)
+
+    stack.pop()
+    assert stack.top is None
+
+
+def test_pop_method_reassings_top_to_next_element_in_stack_list():
+    """Test that the pop method of the Stack class object reassigns the Stack's
+    top to the new last element in the Stack's stack list."""
+
+    stack = Stack()
+    stack.push(1)
+    stack.push(9)
+
+    stack.pop()
+    assert stack.top == stack.stack[-1]

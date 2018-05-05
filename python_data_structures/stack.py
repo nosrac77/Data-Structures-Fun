@@ -38,7 +38,7 @@ class Stack(object):
         # performed below on line 41 and the reassignment of the is_empty
         # attribute is performed on line 43.
 
-        if not self.stack:
+        if self.is_empty:
 
             self.is_empty = False
 
@@ -68,3 +68,73 @@ class Stack(object):
         # point to the last element in our list.
 
         self.top = self.stack[-1]
+
+    def pop(self):
+        """Method to remove and return top of Stack class object."""
+
+        # OVERVIEW
+        # The goal of this method is to remove and return our Stack's top.
+        # Since our Stack is essentially a Python list, we can (and will) use a
+        # built-in method to accomplish this task, being careful to perform a
+        # few checks and reassign the Stack's top along the way.
+
+        # Below, on line 87, we check to see if our Stack isn't empty by
+        # checking it's is_empty attribute (as the value for is_empty is always
+        # a boolean, either True or False). If is_empty is set to False, we'll
+        # perform the pop method as planned. If is_empty is set to True an
+        # error is promptly raised as we can't pop from an empty Stack.
+
+        if not self.is_empty:
+
+            # If the Stack isn't empty, we'll land here. The first thing we'll
+            # do is create a variable with which to return the Stack's top. On
+            # line 99 below, this is accomplished by assigning a variable
+            # old_top to the value of calling a Python built-in method pop() on
+            # our Stack's stack attribute (which is a Python list). Since we
+            # designed our Stack such that it's top refers to the element at
+            # the "end" of our Stack list, we can call Python's built-in pop()
+            # method on that list without any given parameters to remove and
+            # return our Stack's top.
+
+            old_top = self.stack.pop()
+
+            # With the Stack's top removed we're already halfway done! Now all
+            # we have to do is reassign the Stack's top and maybe the Stack's
+            # is_empty attribute. But the reassignment of these attributes will
+            # depend on if the Stack, after performing Python's built-in pop()
+            # method, is currently empty or not. We check for this below on
+            # line 108 by seeing if the length of our Stack list is equal to 0.
+
+            if len(self.stack) == 0:
+
+                # If the length of our Stack list is equal to 0, we know our
+                # Stack is empty. Thus, the Stack's is_empty attribute must be
+                # set to True. Without any elements to reference our Stack's
+                # top also must be set to None. These two steps are performed
+                # below.
+
+                self.is_empty = True
+                self.top = None
+
+            else:
+
+                # If the length of our Stack list isn't equal to zero, we know
+                # our Stack isn't empty. Now the only action we need to take is
+                # ensuring the Stack's top is reassigned to the next
+                # appropriate element in the Stack list, which will be whatever
+                # element is now contained at index negative one of the list.
+                # This reassignment happens below.
+
+                self.top = self.stack[-1]
+
+            # After we've handled the reassignment of the Stack's top (and the
+            # Stack's is_empty, if applicable) all we have to do is return the
+            # old_top variable, which we do below on line 134.
+
+            return old_top
+
+        # If the Stack's is_empty attribute is set to True, we'll land here,
+        # raising an IndexError containing a string explaining why the error
+        # occured.
+
+        raise IndexError("""Cannot pop from an empty Stack.""")

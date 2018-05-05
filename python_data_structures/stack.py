@@ -127,6 +127,14 @@ class Stack(object):
 
                 self.top = self.stack[-1]
 
+            # After we've handled the reassignment of the Stack's top (and the
+            # Stack's is_empty, if applicable) all we have to do is return the
+            # old_top variable, which we do below on line 134.
+
             return old_top
+
+        # If the Stack's is_empty attribute is set to True, we'll land here,
+        # raising an IndexError containing a string explaining why the error
+        # occured.
 
         raise IndexError("""Cannot pop from an empty Stack.""")

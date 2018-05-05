@@ -120,5 +120,11 @@ While knowing the details of a particular ADT isn't essential to create a good i
 
 **Overview** - The Stack is a simple ADT. Operating with a LIFO (last in first out) design, only the Stack's most recently added value can be accessed at any given time. Similar data structures include the Singly Linked List and the Queue.
 
+**Stack Attributes** - An implementation of a Stack must have at least the following attributes:
+
+- **Top** - The value at the "top" of a Stack, this attribute always references the Stack's last added value and is fundamental to all operations the ADT supports. Proper re-assignment of this attribute is crucial to preserve the integrity of the Stack.
+
+- **Is_empty** - A simple Boolean value indicating whether or not the Stack is empty.
+
 **References:**
 - 1 - [Wikipedia](https://en.wikipedia.org/wiki/Abstract_data_type)

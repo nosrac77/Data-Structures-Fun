@@ -126,5 +126,13 @@ While knowing the details of a particular ADT isn't essential to create a good i
 
 - **Is_empty** - A simple Boolean value indicating whether or not the Stack is empty.
 
+**Stack Operations** - An implementation of a Stack must support the following operations:
+
+- **Push** - Adds a new value to the Stack. This new value must become the Stack's new top in order to preserve the integrity of the Stack.
+
+- **Pop** - Removes and returns the Stack's top. Proper re-assignment of the Stack's top is crucial in order to preserve the integrity of the Stack.
+
+**Node Att
+
 **References:**
 - 1 - [Wikipedia](https://en.wikipedia.org/wiki/Abstract_data_type)

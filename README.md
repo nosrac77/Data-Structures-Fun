@@ -39,8 +39,9 @@ Above is a visual representation of what a Singly Linked List might look like in
 ### Data Structures Quick Info Table
 | Name | Big-O Lookup/Search |
 | :-------------: | :-------------: |
-| Singly Linked List | O(n) |
-| Doubly Linked List | O(n) |
+| Singly Linked List | O(k) |
+| Doubly Linked List | O(k) |
+| Stack | N/A |
 
 ### Data Structures Descriptions
 
@@ -112,6 +113,12 @@ While knowing the details of a particular ADT isn't essential to create a good i
 - **Prev_node** - A pointer to the previous node in the Doubly Linked List, this attribute is what makes "linking" the list possible. Without these pointers, creating the Doubly Linked List is not possible. Assigning / re-assigning these pointers, along with the next_node pointers, in the appropriate way is crucial to preserve the integrity of the list.
 
 - **Data** - This attribute allows a Node in the list to hold data. Although not entirely necessary to form a proper Doubly Linked List, without this attribute the list would simply become several empty Nodes linked together by pointers.
+
+---
+
+#### Stack
+
+**Overview** - The Stack is a simple ADT. Operating with a LIFO (last in first out) design, only the Stack's most recently added value can be accessed at any given time. Similar data structures include the Singly Linked List and the Queue.
 
 **References:**
 - 1 - [Wikipedia](https://en.wikipedia.org/wiki/Abstract_data_type)

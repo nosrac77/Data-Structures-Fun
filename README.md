@@ -134,5 +134,11 @@ While knowing the details of a particular ADT isn't essential to create a good i
 
 **Node Attributes** - As a Stack is essentially an array, Nodes are not necessary for a Stack to be properly implemented. With that being said, a Stack can also be implemented using a Singly Linked List. In such a case the Stack's Node Attributes would mirror the Node Attributes of the Singly Linked List.
 
+---
+
+#### Queue
+
+**Overview** - 
+
 **References:**
 - 1 - [Wikipedia](https://en.wikipedia.org/wiki/Abstract_data_type)

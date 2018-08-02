@@ -9,5 +9,3 @@ class Queue(object):
         """Create new instance of Queue class object."""
         self.queue = DoublyLinkedList()
 
-    #
-

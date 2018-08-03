@@ -8,4 +8,12 @@ class Queue(object):
     def __init__(self):
         """Create new instance of Queue class object."""
         self.queue = DoublyLinkedList()
+        self.is_empty = True
+
+    def enqueue(self, data):
+        """Method to add given data to Queue class Object."""
+       self.queue.append(data)
+
+    def dequeue(self):
+        """Method to remove."""
 

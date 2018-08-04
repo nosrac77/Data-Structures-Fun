@@ -16,4 +16,5 @@ class Queue(object):
 
     def dequeue(self):
         """Method to remove."""
+        self.queue.pop()
 

@@ -12,3 +12,11 @@ def test_new_queue_attribute_queue_is_instance_of_doubly_linked_list():
     queue = Queue()
     assert isinstance(queue.queue, DoublyLinkedList)
 
+
+def test_new_queue_attribute_is_empty_is_true():
+    """Test that a newly created Queue class object has an attribute is_empty
+    that is True."""
+
+    queue = Queue()
+    assert queue.is_empty is True
+

@@ -11,10 +11,17 @@ class Queue(object):
         self.is_empty = True
 
     def enqueue(self, data):
-        """Method to add given data to Queue class Object."""
+        """Method to add given data to Queue class object."""
         self.queue.append(data)
 
     def dequeue(self):
-        """Method to remove."""
+        """Method to remove and return item at front of Queue class object."""
         self.queue.pop()
+
+    def peek_front(self):
+        """Method to return item at front of Queue class object."""
+        return self.queue.head
+
+    def peek_back(self):
+        """Method to return item at back of Queue class object."""
 

@@ -10,4 +10,4 @@ def test_new_queue_attribute_queue_is_instance_of_doubly_linked_list():
     that is an instance of the Doubly Linked List class."""
 
     queue = Queue()
-    assert isinstance(queue.queue, DoublyLinkedList())
+    assert isinstance(queue.queue, DoublyLinkedList)

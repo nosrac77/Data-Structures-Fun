@@ -1,5 +1,5 @@
 """Module to implement Queue in Python."""
-from doubly_linked_list.py import DoublyLinkedList 
+from doubly_linked_list import DoublyLinkedList 
 
 
 class Queue(object):
@@ -12,7 +12,7 @@ class Queue(object):
 
     def enqueue(self, data):
         """Method to add given data to Queue class Object."""
-       self.queue.append(data)
+        self.queue.append(data)
 
     def dequeue(self):
         """Method to remove."""

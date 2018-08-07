@@ -24,4 +24,5 @@ class Queue(object):
 
     def peek_back(self):
         """Method to return item at back of Queue class object."""
+        return self.queue.tail
 

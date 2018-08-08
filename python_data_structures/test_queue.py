@@ -20,3 +20,11 @@ def test_new_queue_attribute_is_empty_is_true():
     queue = Queue()
     assert queue.is_empty is True
 
+
+def test_enqueue_method_sets_is_empty_attribute_to_false():
+    """Test that the enqueue method of the Queue class object sets the
+    is_empty attribute to False."""
+
+    queue = Queue()
+    assert queue.is_empty is False
+

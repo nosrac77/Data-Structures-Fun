@@ -26,5 +26,6 @@ def test_enqueue_method_sets_is_empty_attribute_to_false():
     is_empty attribute to False."""
 
     queue = Queue()
+    queue.enqueue(1)
     assert queue.is_empty is False
 

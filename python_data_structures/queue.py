@@ -1,5 +1,6 @@
 """Module to implement Queue in Python."""
-from doubly_linked_list import DoublyLinkedList 
+
+from doubly_linked_list import DoublyLinkedList
 
 
 class Queue(object):

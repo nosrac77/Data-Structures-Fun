@@ -12,6 +12,8 @@ class Queue(object):
 
     def enqueue(self, data):
         """Method to add given data to Queue class object."""
+        if not self.queue.head:
+            self.is_empty = False
         self.queue.append(data)
 
     def dequeue(self):

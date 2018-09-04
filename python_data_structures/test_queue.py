@@ -84,3 +84,15 @@ def test_enqueue_method_does_not_add_items_to_front_of_queue():
 
     assert queue.queue.head.data == queue_front_item
 
+
+def test_dequeue_method_sets_is_empty_attribute_to_true_if_queue_empty():
+    """Test that the dequeue method of the Queue class object sets the is_empty
+    attribute to True if the Queue is rendered empty as a result of the
+    method's use."""
+
+    queue = Queue()
+    queue.enqueue(1)
+    queue.dequeue()
+
+    assert queue.is_empty is True
+

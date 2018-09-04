@@ -19,7 +19,14 @@ class Queue(object):
 
     def dequeue(self):
         """Method to remove and return item at front of Queue class object."""
-        self.queue.pop()
+
+        if not self.queue.head:
+            raise IndexError('Cannot perform dequeue on empty Queue.')
+
+        if not self.queue.head.next_node:
+            self.is_empty = True
+
+        return self.queue.pop()
 
     def peek_front(self):
         """Method to return item at front of Queue class object."""

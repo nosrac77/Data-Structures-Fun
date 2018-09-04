@@ -20,11 +20,12 @@ def test_new_queue_attribute_is_empty_is_true():
     assert queue.is_empty is True
 
 
-def test_enqueue_method_sets_is_empty_attribute_to_false():
-    """Test that the enqueue method of the Queue class object sets the
-    is_empty attribute to False."""
+def test_enqueue_method_changes_is_empty_attribute_to_false_if_empty_queue():
+    """Test that the enqueue method of the Queue class object changes the
+    is_empty attribute from True to False if used on empty Queue."""
 
     queue = Queue()
+    assert queue.is_empty is True
     queue.enqueue(1)
     assert queue.is_empty is False
 
@@ -36,6 +37,26 @@ def test_enqueue_method_adds_item_with_given_data_to_queue():
     queue = Queue()
     queue.enqueue(1)
     assert queue.queue.head.data == 1
+
+
+def test_enqueue_method_changes_queue_head_from_none_to_added_data():
+    """Test that the enqueue method of the Queue class object changes the value
+    of the Queue's head from None to the data added."""
+
+    queue = Queue()
+    assert queue.queue.head is None
+    queue.enqueue(5)
+    assert queue.queue.head and queue.queue.head.data == 5
+
+
+def test_enqueue_method_changes_queue_tail_from_none_to_added_data():
+    """Test that the enqueue method of the Queue class object changes the value
+    of the Queue's tail from None to the data added."""
+
+    queue = Queue()
+    assert queue.queue.tail is None
+    queue.enqueue(5)
+    assert queue.queue.tail and queue.queue.tail.data == 5
 
 
 def test_enqueue_method_always_adds_items_to_rear_of_queue():
@@ -62,3 +83,4 @@ def test_enqueue_method_does_not_add_items_to_front_of_queue():
     queue.enqueue(10)
 
     assert queue.queue.head.data == queue_front_item
+

@@ -2,6 +2,7 @@
 
 from doubly_linked_list import DoublyLinkedList
 from queue import Queue
+import pytest
 
 
 def test_new_queue_attribute_queue_is_instance_of_doubly_linked_list():
@@ -95,4 +96,14 @@ def test_dequeue_method_sets_is_empty_attribute_to_true_if_queue_empty():
     queue.dequeue()
 
     assert queue.is_empty is True
+
+
+def test_dequeue_raises_exception_when_used_on_empty_queue():
+    """Test that the dequeue method of the Queue class object raises an
+    exception if used on an empty Queue."""
+
+    queue = Queue()
+
+    with pytest.raises(IndexError):
+        queue.dequeue()
 
